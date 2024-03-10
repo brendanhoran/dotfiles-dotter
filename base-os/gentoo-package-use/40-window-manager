@@ -1,0 +1,3 @@
+gui-wm/sway tray grimshot
+app-misc/jq -oniguruma
+media-libs/vulkan-loader layers

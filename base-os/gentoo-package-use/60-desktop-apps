@@ -1,0 +1,9 @@
+*/* sound gles2 pipewire sound-server dbus
+
+media-libs/libvpx postproc
+gnome-base/gnome-keyring -ssh-agent
+dev-libs/libdbusmenu gtk3
+gui-wm/sway -swaybar -tray
+gui-apps/waybar tray network
+media-video/pipewire echo-cancel
+app-editors/mousepad -shortcuts -spell -policykit

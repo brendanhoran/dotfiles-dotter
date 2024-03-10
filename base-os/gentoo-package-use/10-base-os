@@ -1,0 +1,11 @@
+# Global enabled use flags
+*/* lvm wayland cryptsetup initramfs man
+
+# Global disabled use flags
+*/* -accessibility -gnome -X
+
+# systemd use flags
+sys-apps/systemd boot fido2 -dns-over-tls -http -resolvconf
+
+# uki and kernel
+sys-kernel/installkernel uki dracut

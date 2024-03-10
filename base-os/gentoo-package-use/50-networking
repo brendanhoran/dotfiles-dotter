@@ -1,0 +1,2 @@
+net-misc/networkmanager -modemmanager -ppp -bluetooth
+gnome-extra/nm-applet -modemmanager appindicator

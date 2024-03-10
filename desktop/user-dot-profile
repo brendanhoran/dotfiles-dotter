@@ -1,0 +1,2 @@
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export PATH="$PATH:/home/brendan/.cargo/bin"

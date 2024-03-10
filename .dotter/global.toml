@@ -1,0 +1,62 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+base-os = ""
+boot = ""
+desktop = ""
+
+[default.variables]
+
+[boot]
+
+[boot.files]
+"boot/systemd-boot-config" = "/efi/loader/loader.conf"
+
+[base-os]
+
+[base-os.files]
+"base-os/make.conf" = "/etc/portage/make.conf"
+
+[base-os-dracut]
+
+[base-os-dracut.files]
+"base-os/dracut/cmd-line.conf" = "/etc/dracut.conf.d/cmd-line.conf"
+"base-os/dracut/firmware-blobs.conf" = "/etc/dracut.conf.d/firmware-blobs.conf"
+"base-os/dracut/microcode.conf" = "/etc/dracut.conf.d/microcode.conf"
+"base-os/dracut/modules.conf" = "/etc/dracut.conf.d/modules.conf"
+
+[base-os-greet]
+
+[base-os-greet.files]
+"base-os/greet/config.toml" = "/etc/greetd/config.toml"
+"base-os/greet/environments" = "/etc/greetd/environments"
+"base-os/greet/gtkgreet.css" = "/etc/greetd/gtkgreet.css"
+"base-os/greet/sway-config" = "/etc/greetd/sway-config"
+
+[base-os-gentoo-accept-keywords]
+
+[base-os-gentoo-accept-keywords.files]
+"base-os/gentoo-accept-keywords/10-base-os" = "/etc/portage/package.accept_keywords/10-base-os"
+"base-os/gentoo-accept-keywords/60-desktop-apps" = "/etc/portage/package.accept_keywords/60-desktop-apps"
+
+[base-os-gentoo-package-use]
+
+[base-os-gentoo-package-use.files]
+"base-os/gentoo-package-use/00-cpu-flags" = "/etc/portage/package.use/00-cpu-flags"
+"base-os/gentoo-package-use/10-base-os" = "/etc/portage/package.use/10-base-os"
+"base-os/gentoo-package-use/20-base-apps" = "/etc/portage/package.use/20-base-apps"
+"base-os/gentoo-package-use/30-x11-enabled" = "/etc/portage/package.use/30-x11-enabled"
+"base-os/gentoo-package-use/40-window-manager" = "/etc/portage/package.use/40-window-manager"
+"base-os/gentoo-package-use/50-networking" = "/etc/portage/package.use/50-networking"
+"base-os/gentoo-package-use/60-desktop-apps" = "/etc/portage/package.use/60-desktop-apps"
+
+[desktop]
+
+[desktop.files]
+"desktop/sway-config" = "~/.config/sway/config"
+"desktop/user-dot-profile" = "~/.profile"
+"desktop/waybar-config" = "~/.config/waybar/config"
+"desktop/wezterm-config" = "~/.config/wezterm/wezterm.lua"
