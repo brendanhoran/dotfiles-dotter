@@ -1,62 +1,102 @@
 [helpers]
 
-[default]
-depends = []
+### Package group mappings ###
 
-[default.files]
-base-os = ""
-boot = ""
-desktop = ""
+[os]
+depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "my-scripts"]
 
-[default.variables]
+[user]
+depends = ["misc-home", "sway", "waybar", "wofi"]
+
+### END Package group mappings ###
+
+
+### OS level files ###
+
+# Not templates but using this type to copy a file vs create a symlink
+# See:
+# https://github.com/SuperCuber/dotter/issues/77
 
 [boot]
 
 [boot.files]
-"boot/systemd-boot-config" = "/efi/loader/loader.conf"
+"boot/systemd-boot-config" = { target = "/efi/loader/loader.conf", type = "template" }
 
 [base-os]
 
 [base-os.files]
-"base-os/make.conf" = "/etc/portage/make.conf"
+"base-os/make.conf" = { target = "/etc/portage/make.conf", type = "template" }
+"base-os/gentoo-package-license" = { target = "/etc/portage/package.license", type = "template" }
+"base-os/sysctl-docker" = { target = "/etc/sysctl.d/docker.conf",  type = "template" }
+"base-os/limits-conf" = { target = "/etc/security/limits.conf",  type = "template" }
 
 [base-os-dracut]
 
 [base-os-dracut.files]
-"base-os/dracut/cmd-line.conf" = "/etc/dracut.conf.d/cmd-line.conf"
-"base-os/dracut/firmware-blobs.conf" = "/etc/dracut.conf.d/firmware-blobs.conf"
-"base-os/dracut/microcode.conf" = "/etc/dracut.conf.d/microcode.conf"
-"base-os/dracut/modules.conf" = "/etc/dracut.conf.d/modules.conf"
+"base-os/dracut/cmd-line.conf" = { target = "/etc/dracut.conf.d/cmd-line.conf",  type = "template" }
+"base-os/dracut/firmware-blobs.conf" = { target = "/etc/dracut.conf.d/firmware-blobs.conf",  type = "template" } 
+"base-os/dracut/microcode.conf" = { target = "/etc/dracut.conf.d/microcode.conf", type = "template" }
+"base-os/dracut/modules.conf" = { target = "/etc/dracut.conf.d/modules.conf",  type = "template" }
 
 [base-os-greet]
 
 [base-os-greet.files]
-"base-os/greet/config.toml" = "/etc/greetd/config.toml"
-"base-os/greet/environments" = "/etc/greetd/environments"
-"base-os/greet/gtkgreet.css" = "/etc/greetd/gtkgreet.css"
-"base-os/greet/sway-config" = "/etc/greetd/sway-config"
+"base-os/greet/config.toml" = { target = "/etc/greetd/config.toml",  type = "template" }
+"base-os/greet/environments" = { target = "/etc/greetd/environments",  type = "template" }
+"base-os/greet/gtkgreet.css" = { target = "/etc/greetd/gtkgreet.css",  type = "template" }
+"base-os/greet/sway-config" = { target = "/etc/greetd/sway-config", type = "template" }
 
 [base-os-gentoo-accept-keywords]
 
 [base-os-gentoo-accept-keywords.files]
-"base-os/gentoo-accept-keywords/10-base-os" = "/etc/portage/package.accept_keywords/10-base-os"
-"base-os/gentoo-accept-keywords/60-desktop-apps" = "/etc/portage/package.accept_keywords/60-desktop-apps"
+"base-os/gentoo-accept-keywords/10-base-os" = { target = "/etc/portage/package.accept_keywords/10-base-os", type = "template" }
+"base-os/gentoo-accept-keywords/60-desktop-apps" = { target = "/etc/portage/package.accept_keywords/60-desktop-apps",  type = "template" }
 
 [base-os-gentoo-package-use]
 
 [base-os-gentoo-package-use.files]
-"base-os/gentoo-package-use/00-cpu-flags" = "/etc/portage/package.use/00-cpu-flags"
-"base-os/gentoo-package-use/10-base-os" = "/etc/portage/package.use/10-base-os"
-"base-os/gentoo-package-use/20-base-apps" = "/etc/portage/package.use/20-base-apps"
-"base-os/gentoo-package-use/30-x11-enabled" = "/etc/portage/package.use/30-x11-enabled"
-"base-os/gentoo-package-use/40-window-manager" = "/etc/portage/package.use/40-window-manager"
-"base-os/gentoo-package-use/50-networking" = "/etc/portage/package.use/50-networking"
-"base-os/gentoo-package-use/60-desktop-apps" = "/etc/portage/package.use/60-desktop-apps"
+"base-os/gentoo-package-use/00-cpu-flags" = { target = "/etc/portage/package.use/00-cpu-flags", type = "template" }
+"base-os/gentoo-package-use/10-base-os" = { target = "/etc/portage/package.use/10-base-os", type = "template" }
+"base-os/gentoo-package-use/20-base-apps" = { target = "/etc/portage/package.use/20-base-apps",  type = "template" }
+"base-os/gentoo-package-use/30-x11-enabled" = { target = "/etc/portage/package.use/30-x11-enabled", type = "template" }
+"base-os/gentoo-package-use/40-window-manager" = { target = "/etc/portage/package.use/40-window-manager", type = "template" }
+"base-os/gentoo-package-use/50-networking" = { target = "/etc/portage/package.use/50-networking", type = "template" }
+"base-os/gentoo-package-use/55-virtualization" = { target = "/etc/portage/package.use/55-virtualization", type = "template" }
+"base-os/gentoo-package-use/60-desktop-apps" = { target = "/etc/portage/package.use/60-desktop-apps", type = "template" }
 
-[desktop]
+[my-scripts]
 
-[desktop.files]
-"desktop/sway-config" = "~/.config/sway/config"
+[my-scripts.files]
+"my-scripts/screenshot.sh" = { target = "/usr/local/bin/screenshot.sh", type = "template" }
+
+### END OS level files ###
+
+
+### User /home config and dot files ###
+
+[misc-home]
+
+[misc-home.files]
 "desktop/user-dot-profile" = "~/.profile"
-"desktop/waybar-config" = "~/.config/waybar/config"
+"desktop/gtk3-settings" = "~/.config/gtk-3.0/settings.ini"
 "desktop/wezterm-config" = "~/.config/wezterm/wezterm.lua"
+
+[sway]
+
+[sway.files]
+"desktop/sway/config" = "~/.config/sway/config"
+
+[waybar]
+
+[waybar.files]
+"desktop/waybar/config" = "~/.config/waybar/config"
+"desktop/waybar/style.css" = "~/.config/waybar/style.css"
+
+[wofi]
+
+[wofi.files]
+"desktop/wofi/config" = "~/.config/wofi/config"
+"desktop/wofi/config.grimshot" = "~/.config/wofi/config.grimshot"
+"desktop/wofi/style.css" = "~/.config/wofi/style.css"
+
+### END User /home config and dot files ###

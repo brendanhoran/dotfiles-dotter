@@ -1,2 +1,5 @@
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+export QT_QPA_PLATFORM=wayland
+export XDG_SCREENSHOTS_DIR="/home/brendan/screenshots"
 export PATH="$PATH:/home/brendan/.cargo/bin"
+export PATH="$PATH:/opt/bin"

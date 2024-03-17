@@ -1,0 +1,10 @@
+prompt=Screenshot
+hide_search=false
+hide_scroll=true
+insensitive=true
+width=1
+show=dmenu
+lines=5
+location=top_right
+x=-200
+gtk_dark=true

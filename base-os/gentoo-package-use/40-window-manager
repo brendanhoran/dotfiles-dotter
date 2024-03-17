@@ -1,3 +1,4 @@
-gui-wm/sway tray grimshot
+gui-wm/sway -swaybar -tray grimshot
 app-misc/jq -oniguruma
 media-libs/vulkan-loader layers
+gui-apps/waybar tray network

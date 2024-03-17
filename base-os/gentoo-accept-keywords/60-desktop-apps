@@ -1,2 +1,10 @@
 x11-terms/wezterm
 gui-apps/gtkgreet
+gui-apps/tofi
+media-libs/libva-intel-media-driver
+x11-apps/igt-gpu-tools
+gui-apps/nwg-displays
+gui-apps/wlr-randr
+dev-python/i3ipc
+gui-apps/wev
+app-misc/brightnessctl

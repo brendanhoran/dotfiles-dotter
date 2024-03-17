@@ -1,0 +1,15 @@
+hide_scroll=true
+show=drun
+width=15%
+lines=6
+line_wrap=word
+term=wezterm
+allow_markup=true
+show_all=false
+layer=overlay
+insensitive=true
+prompt=
+image_size=10
+location=center
+columns=1
+gtk_dark=true

@@ -1,5 +1,5 @@
 # Global enabled use flags
-*/* gtk vim-syntax
+*/* gtk vim-syntax lm-sensors
 
 # Global disable use flags
 */* -sound -qt5 -qt6
