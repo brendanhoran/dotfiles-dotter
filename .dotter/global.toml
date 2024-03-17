@@ -6,7 +6,7 @@
 depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "my-scripts"]
 
 [user]
-depends = ["misc-home", "sway", "waybar", "wofi"]
+depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 
 ### END Package group mappings ###
 
@@ -98,5 +98,10 @@ depends = ["misc-home", "sway", "waybar", "wofi"]
 "desktop/wofi/config" = "~/.config/wofi/config"
 "desktop/wofi/config.grimshot" = "~/.config/wofi/config.grimshot"
 "desktop/wofi/style.css" = "~/.config/wofi/style.css"
+
+[fish]
+
+[fish.files]
+"desktop/fish/config.fish" = "~/.config/fish/config.fish"
 
 ### END User /home config and dot files ###
