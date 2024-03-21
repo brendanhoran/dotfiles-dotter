@@ -1,3 +1,5 @@
+# File managed by version control
+
 gui-wm/sway -swaybar -tray grimshot
 app-misc/jq -oniguruma
 media-libs/vulkan-loader layers

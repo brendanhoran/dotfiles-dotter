@@ -1,3 +1,7 @@
+# File managed by version control
+
 net-wireless/wpa_supplicant eap-sim fasteap fils mbo tkip wep wimax
 net-misc/networkmanager -modemmanager -ppp -bluetooth
 gnome-extra/nm-applet -modemmanager appindicator
+
+net-firewall/nftables xtables

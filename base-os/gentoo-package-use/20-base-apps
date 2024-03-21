@@ -1,3 +1,5 @@
+# File managed by version control
+
 # Global enabled use flags
 */* gtk vim-syntax lm-sensors
 

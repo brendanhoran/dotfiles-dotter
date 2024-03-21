@@ -1,4 +1,8 @@
+# File managed by version control
+
 sys-kernel/linux-firmware @BINARY-REDISTRIBUTABLE
 sys-firmware/intel-microcode intel-ucode
 media-libs/libva-intel-media-driver no-source-code
 app-editors/vscode Microsoft-vscode
+
+media-fonts/nerd-fonts Vic-Fieger-License

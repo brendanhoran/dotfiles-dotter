@@ -1,3 +1,5 @@
+# File managed by version control
+
 # Global enabled use flags
 */* lvm wayland cryptsetup initramfs man
 
@@ -14,3 +16,6 @@ sys-kernel/installkernel uki dracut
 dev-libs/libgcrypt static-libs
 dev-libs/libgpg-error static-libs
 dev-libs/lzo static-libs
+
+# Enable displaying kernel module signatures
+sys-apps/kmod pkcs7

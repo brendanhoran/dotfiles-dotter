@@ -3,7 +3,7 @@
 ### Package group mappings ###
 
 [os]
-depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "my-scripts"]
+depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts"]
 
 [user]
 depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
@@ -28,7 +28,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "base-os/make.conf" = { target = "/etc/portage/make.conf", type = "template" }
 "base-os/gentoo-package-license" = { target = "/etc/portage/package.license", type = "template" }
 "base-os/sysctl-docker" = { target = "/etc/sysctl.d/docker.conf",  type = "template" }
-"base-os/limits-conf" = { target = "/etc/security/limits.conf",  type = "template" }
+"base-os/limits.conf" = { target = "/etc/security/limits.conf",  type = "template" }
 
 [base-os-dracut]
 
@@ -64,6 +64,12 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "base-os/gentoo-package-use/55-virtualization" = { target = "/etc/portage/package.use/55-virtualization", type = "template" }
 "base-os/gentoo-package-use/60-desktop-apps" = { target = "/etc/portage/package.use/60-desktop-apps", type = "template" }
 
+[base-os-gentoo-env-override]
+
+[base-os-gentoo-env-override.files]
+"base-os/gentoo-env/no-sequential-builds.conf" = { target = "/etc/portage/env/no-sequential-builds.conf", type = "template" }
+"base-os/gentoo-env/package.env" = { target = "/etc/portage/package.env", type = "template" }
+
 [my-scripts]
 
 [my-scripts.files]
@@ -80,11 +86,14 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "desktop/user-dot-profile" = "~/.profile"
 "desktop/gtk3-settings" = "~/.config/gtk-3.0/settings.ini"
 "desktop/wezterm-config" = "~/.config/wezterm/wezterm.lua"
+"desktop/gpg-conf" =  "~/.gnupg/gpg.conf"
 
 [sway]
 
 [sway.files]
 "desktop/sway/config" = "~/.config/sway/config"
+"desktop/sway/launch-my-apps" = "~/.config/sway/config.d/launch-my-apps"
+"desktop/sway/custom-key-binds" = "~/.config/sway/config.d/custom-key-binds"
 
 [waybar]
 
@@ -99,9 +108,16 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "desktop/wofi/config.grimshot" = "~/.config/wofi/config.grimshot"
 "desktop/wofi/style.css" = "~/.config/wofi/style.css"
 
+[mako]
+
+[mako.files]
+"desktop/mako/comfig" = "~/.config/mako/config"
+
 [fish]
 
 [fish.files]
 "desktop/fish/config.fish" = "~/.config/fish/config.fish"
+"desktop/fish/vscode-integration.fish" = "~/.config/fish/conf.d/vscode-integration.fish"
+
 
 ### END User /home config and dot files ###

@@ -1,31 +1,12 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
+# Logo key
 set $mod Mod4
-# Home row direction keys, like vim
-#set $left h
-#set $down j
-#set $up k
-#set $right g
-# Your preferred terminal emulator
 set $term wezterm
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-#set $menu bemenu-run -c -w -l 5 -M 700 | xargs swaymsg exec --
-#set $menu tofi-run | xargs swaymsg exec --
 set $menu wofi -I | xargs swaymsg exec --
 
-# Set GTk theme
+# Set GTK theme
 set $gnome-schema org.gnome.desktop.interface
-
 exec_always {
     gsettings set $gnome-schema gtk-theme "Adwaita-dark"
     gsettings set $gnome-schema icon-theme "Adwaita-dark"
@@ -40,46 +21,16 @@ exec_always {
 default_border none
 default_floating_border none
 
-
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
 output eDP-1 resolution 2800x1800 scale 1.2
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-#
-# Example configuration:
-#
 exec swayidle -w \
           timeout 300 'swaylock -f -c 000000' \
           timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
           before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
+### Input config
 # man 5 sway-input
 # Apply settings to the touchpad only
 input type:touchpad {
@@ -90,9 +41,6 @@ input type:touchpad {
 }
 
 ### Key bindings
-#
-# Basics:
-#
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -102,26 +50,20 @@ input type:touchpad {
     # Start your launcher
     bindsym $mod+d exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
-
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+    # Lock the session
     bindsym $mod+l exec swaylock
 
+    # launch print screen menu
     bindsym Print exec /usr/local/bin/screenshot.sh
-#
+
 # Moving around:
-#
-    # BH doco
+    #  Window focus is not based on mouse position
     focus_follows_mouse no
 
     bindsym $mod+Left focus left
@@ -133,10 +75,11 @@ input type:touchpad {
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
-#
+
 # Workspaces:
-#
-    #BH  man 5 sway
+
+   # Allow hitting the same workspace number to swap back and forth
+    # man 5 sway
     workspace_auto_back_and_forth yes
 
     # Switch to workspace
@@ -161,11 +104,9 @@ input type:touchpad {
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-#
+
 # Layout stuff:
-#
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -188,9 +129,9 @@ input type:touchpad {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
-#
+
 # Scratchpad:
-#
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -200,9 +141,13 @@ input type:touchpad {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
-#
+
+    # Set mousepad to always be a scratchpad app
+    for_window [app_id="mousepad"] move to scratchpad
+    bindsym $mod+s [app_id="mousepad"] scratchpad show
+
 # Resizing containers:
-#
+
 mode "resize" {
     # with arrow keys
     bindsym Left resize shrink width 30px
@@ -216,39 +161,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+# Use waybar as a status bar
 bar {
     swaybar_command /usr/bin/waybar 
 }
 
-#    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-
-
-    bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
-    bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
-
-# Launch my apps
-
-exec_always /usr/bin/nm-applet
-exec_always /usr/bin/mousepad
-
-for_window [app_id="mousepad"] move to scratchpad
-bindsym $mod+s [app_id="mousepad"] scratchpad show
-
-# float helper windows/pop-ups
+# Enable floating for a sst of windows/pop-ups
 for_window [window_role = "pop-up"] floating enable
 for_window [window_role = "bubble"] floating enable
 for_window [window_role = "dialog"] floating enable
@@ -256,4 +174,4 @@ for_window [window_type = "dialog"] floating enable
 for_window [window_role = "task_dialog"] floating enable
 for_window [window_type = "menu"] floating enable
 
-include /etc/sway/config.d/*
+include config.d/*

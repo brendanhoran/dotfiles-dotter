@@ -1,3 +1,5 @@
+# File managed by version control
+
 sys-fs/lvm2 thin
 app-containers/docker overlay device-mapper
 app-containers/containerd device-mapper

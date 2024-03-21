@@ -1,0 +1,4 @@
+# Launch my apps
+exec_always /usr/bin/mako
+exec_always /usr/bin/nm-applet
+exec_always /usr/bin/mousepad
