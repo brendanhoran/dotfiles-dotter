@@ -3,7 +3,7 @@
 ### Package group mappings ###
 
 [os]
-depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts"]
+depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts", "base-os-systemd-unit-dropins"]
 
 [user]
 depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
@@ -69,6 +69,12 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 [base-os-gentoo-env-override.files]
 "base-os/gentoo-env/no-sequential-builds.conf" = { target = "/etc/portage/env/no-sequential-builds.conf", type = "template" }
 "base-os/gentoo-env/package.env" = { target = "/etc/portage/package.env", type = "template" }
+
+[base-os-systemd-unit-dropins]
+
+[base-os-systemd-unit-dropins.files]
+"base-os/systemd-unit-dropins/network-manager-set-logging-to-warn" = { target = "/etc/systemd/system/NetworkManager.service.d/set-logging-to-warn.conf", type = "template" }
+
 
 [my-scripts]
 

@@ -57,7 +57,7 @@ input type:touchpad {
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Lock the session
-    bindsym $mod+l exec swaylock
+    bindsym $mod+l exec swaylock -f -c 000000
 
     # launch print screen menu
     bindsym Print exec /usr/local/bin/screenshot.sh

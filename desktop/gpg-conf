@@ -2,4 +2,3 @@ digest-algo SHA256
 personal-digest-preferences SHA512 SHA384 SHA256 SHA224
 
 keyid-format long
-with-fingerprint

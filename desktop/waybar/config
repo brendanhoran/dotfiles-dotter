@@ -38,7 +38,7 @@
 
     "memory": {
         "interval": 10,
-        "format": " {used:0.1f}G/{total:0.1f}G", // Icon: memory
+        "format": "   {used:0.1f}G/{total:0.1f} G", // Icon: memory
         "states": {
             "warning": 70,
             "critical": 90
@@ -75,19 +75,19 @@
 
     // Temperature of the cpu - /sys/class/thermal
     "temperature": {
-    "format": "{temperatureC}°C "
+    "format": " {temperatureC}°C"
     },
 
     // Backlight percentage for intel -- X1
     "backlight": {
     "device": "intel_backlight",
-    "format": "{percent}% {icon}",
+    "format": "{icon} {percent}% ",
     "format-icons": ["", ""]
     },
 
     // Battery percentage and charging / discharging rate
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% {icon} ",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
         "format-charging": "{capacity}% 🔌",
@@ -96,7 +96,7 @@
             "warning": 25,
             "critical": 10
         },
-        "tooltip": false
+        "tooltip": true
     },
 
     // Legacy tray space for things like network manager
