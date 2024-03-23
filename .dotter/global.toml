@@ -128,6 +128,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "desktop/fish/config.fish" = "~/.config/fish/config.fish"
 "desktop/fish/vscode-integration.fish" = "~/.config/fish/conf.d/vscode-integration.fish"
 "desktop/fish/misc.fish" = "~/.config/fish/conf.d/misc.fish"
+"desktop/fish/git.fish" = "~/.config/fish/conf.d/git.fish"
 
 
 ### END User /home config and dot files ###
