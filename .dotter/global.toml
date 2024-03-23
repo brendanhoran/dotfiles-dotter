@@ -29,6 +29,8 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "base-os/gentoo-package-license" = { target = "/etc/portage/package.license", type = "template" }
 "base-os/sysctl-docker" = { target = "/etc/sysctl.d/docker.conf",  type = "template" }
 "base-os/rt-limits.conf" = { target = "/etc/security/limits.d/rt-limits.conf",  type = "template" }
+"base-os/tmpfiles-energy-perf" = { target = "/etc/tmpfiles.d/energy_performance_preference.conf", type = "template" }
+"base-os/modprobe-iwlwifi" = { target = "/etc/modprobe.d/iwlwifi.conf" , type = "template" }
 
 [base-os-dracut]
 
