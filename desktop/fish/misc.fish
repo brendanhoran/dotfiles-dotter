@@ -5,6 +5,6 @@ if not pgrep -f ssh-agent >/dev/null
 
   if status is-login 
     and status is-interactive
-      keychain --eval --quiet $SSH_KEYS_TO_AUTOLOAD | source
+      keychain --eval --quiet --agents ssh,gpg $SSH_KEYS_TO_AUTOLOAD | source
   end
 end
