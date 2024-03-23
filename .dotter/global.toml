@@ -28,7 +28,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "base-os/make.conf" = { target = "/etc/portage/make.conf", type = "template" }
 "base-os/gentoo-package-license" = { target = "/etc/portage/package.license", type = "template" }
 "base-os/sysctl-docker" = { target = "/etc/sysctl.d/docker.conf",  type = "template" }
-"base-os/limits.conf" = { target = "/etc/security/limits.conf",  type = "template" }
+"base-os/rt-limits.conf" = { target = "/etc/security/limits.d/rt-limits.conf",  type = "template" }
 
 [base-os-dracut]
 
@@ -56,6 +56,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 
 [base-os-gentoo-package-use.files]
 "base-os/gentoo-package-use/00-cpu-flags" = { target = "/etc/portage/package.use/00-cpu-flags", type = "template" }
+"base-os/gentoo-package-use/01-python-targets" = { target = "/etc/portage/package.use/01-python-targets", type = "template" }
 "base-os/gentoo-package-use/10-base-os" = { target = "/etc/portage/package.use/10-base-os", type = "template" }
 "base-os/gentoo-package-use/20-base-apps" = { target = "/etc/portage/package.use/20-base-apps",  type = "template" }
 "base-os/gentoo-package-use/30-x11-enabled" = { target = "/etc/portage/package.use/30-x11-enabled", type = "template" }

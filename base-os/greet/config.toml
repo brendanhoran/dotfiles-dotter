@@ -6,12 +6,7 @@ vt = 7
 [general]
 source_profile = true
 
-# The default session, also known as the greeter.
 [default_session]
-
-# `agreety` is the bundled agetty/login-lookalike. You can replace `/bin/sh`
-# with whatever you want started, such as `sway`.
-#command = "agreety --cmd /bin/sh"
 command = "sway --config /etc/greetd/sway-config"
 
 # The user to run the command as. The privileges this user must have depends

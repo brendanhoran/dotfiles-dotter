@@ -4,8 +4,6 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
--- config.color_scheme = 'kanagawabones'
 config.color_scheme = 'Monokai Pro (Gogh)'
 
 config.scrollback_lines = 3500
@@ -18,7 +16,6 @@ config.default_cursor_style = 'SteadyUnderline'
 config.cursor_thickness = '4.0'
 
 config.hide_mouse_cursor_when_typing = false
-
 
 -- and finally, return the configuration to wezterm
 return config
