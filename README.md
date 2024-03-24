@@ -15,6 +15,11 @@ Setup currently is:
 * Waybar for my status bar
 * Greetd and gtkgreet for my login handling
 
+## Screenshot
+
+As of March 2024 this is what the above looks like.
+(/misc/desktop-screenshot-march-2024.png)
+
 ## OS configs
 
 Under the `os` package group you will find all the configurations I use to setup Gentoo on my Laptop that supports the above configuration.
@@ -44,3 +49,7 @@ See:
 https://github.com/SuperCuber/dotter/issues/77
 
 This is not the best way, but dotter is also not designed to manage operating systems.
+
+## Misc
+You can find screen shots under the `misc/` directory.
+I also save my kernel config here too.
