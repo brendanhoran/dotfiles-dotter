@@ -31,7 +31,7 @@ Under the `user` package you will find all the dot files that I have configured 
 
 ## Usage
 
-To deploy the `user` group use `dotter deploy".\
+To deploy the `user` group use `dotter deploy".    
 Using `-vv` to show details or `-d` for a dry-run.
 
 To deploy the `os` group you must be root, since this configuration copies files to `/etc` and other locations.
