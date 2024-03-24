@@ -18,7 +18,8 @@ Setup currently is:
 ## Screenshot
 
 As of March 2024 this is what the above looks like.
-(/misc/desktop-screenshot-march-2024.png)
+![desktop-screenshot-march-2024](https://github.com/brendanhoran/dotfiles-dotter/assets/3905013/e110ddd6-2732-4092-919f-5b9cd22395f1)
+
 
 ## OS configs
 
