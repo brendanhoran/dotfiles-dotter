@@ -1,6 +1,6 @@
 # File managed by version control
 
-gui-wm/sway -swaybar -tray grimshot
+gui-wm/sway -swaybar -tray
 app-misc/jq -oniguruma
 media-libs/vulkan-loader layers
 gui-apps/waybar tray network

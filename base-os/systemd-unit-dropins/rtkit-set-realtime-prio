@@ -1,0 +1,6 @@
+[Service]
+# Make NetworkManager less verbose in the journal
+# Must erase previous ExecStart setting first before setting new one
+ExecStart=
+ExecStart=/usr/libexec/rtkit-daemon --our-realtime-priority=90 --max-realtime-priority=89
+

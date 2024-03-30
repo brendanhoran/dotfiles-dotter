@@ -16,3 +16,4 @@ dev-cpp/cairomm X
 media-libs/libpulse X
 media-libs/libsdl2 X
 media-fonts/fontawesome X
+media-fonts/noto-cjk X

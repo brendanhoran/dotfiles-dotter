@@ -6,11 +6,11 @@ selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config.grimsh
  
 case $selected in
   active)
-    /usr/bin/grimshot --notify save active;;
+    grimshot --notify save active;;
   screen)
-    /usr/bin/grimshot --notify save screen;;
+    grimshot --notify save screen;;
   area)
-    /usr/bin/grimshot --notify save area;;
+    grimshot --notify save area;;
   window)
-    /usr/bin/grimshot --notify save window;;
+    grimshot --notify save window;;
 esac

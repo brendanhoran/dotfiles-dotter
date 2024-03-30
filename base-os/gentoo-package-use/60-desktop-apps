@@ -1,7 +1,7 @@
 # File managed by version control
 
 # Global use flags for desktop mode
-*/* sound gles2 pipewire sound-server dbus vaapi
+*/* sound gles2 pipewire sound-server dbus vaapi security-key
 
 media-libs/libvpx postproc
 gnome-base/gnome-keyring -ssh-agent

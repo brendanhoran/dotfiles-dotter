@@ -10,7 +10,7 @@
 sys-apps/systemd boot fido2 -dns-over-tls -http -resolvconf
 
 # uki and kernel
-sys-kernel/installkernel uki dracut
+sys-kernel/installkernel uki dracut systemd-boot
 
 # sys-power/suspend needs the following packages built as static
 dev-libs/libgcrypt static-libs
