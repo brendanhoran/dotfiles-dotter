@@ -18,3 +18,10 @@ media-libs/libsdl2 -joystick -haptic
 media-gfx/imv heif
 media-libs/freeimage raw webp
 app-admin/sudo -sendmail
+
+media-libs/gd webp
+
+# Tex and LayTex stuff
+app-text/texlive-core -luajittex
+dev-texlive/texlive-basic -luajittex
+dev-libs/zziplib -sdl
