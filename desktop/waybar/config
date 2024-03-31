@@ -101,7 +101,9 @@
 
     // Legacy tray space for things like network manager
     "tray": {
-        "icon-size": 18
+        "show-passive-items": true,
+        "icon-size": 18,
+        "spacing": 8
     },
 
     // Custom separator
