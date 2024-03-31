@@ -1,5 +1,10 @@
+# Select preferred backend for Electron apps. See:
+# https://github.com/electron/electron/blob/main/docs/api/environment-variables.md#electron_ozone_platform_hint-linux
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-export QT_QPA_PLATFORM=wayland
+# Use QT platform abstraction and qtct to handle themes for QT apps
+export QT_QPA_PLATFORMTHEME=qt5ct
+# Where to save screenshots when using grimshot and others
 export XDG_SCREENSHOTS_DIR="/home/brendan/screenshots"
+# Various local paths to append
 export PATH="$PATH:/home/brendan/.cargo/bin"
 export PATH="$PATH:/opt/bin"
