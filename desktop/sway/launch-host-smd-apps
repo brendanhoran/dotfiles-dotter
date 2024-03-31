@@ -1,2 +1,2 @@
 # Apps needed for personal laptop (smd)
-exec_always /home/brendan/.local/share/tresorit/tresorit
+exec_always /home/brendan/.local/share/tresorit/tresorit --hidden
