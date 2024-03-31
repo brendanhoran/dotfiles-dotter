@@ -4,5 +4,6 @@ includes = []
 packages = ["user"]
 
 [files]
+"desktop/sway/launch-host-smd-apps" = "~/.config/sway/config.d/launch-host-smd-apps"
 
 [variables]
