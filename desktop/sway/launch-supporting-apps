@@ -1,4 +1,4 @@
 # Launch apps needed to support desktop usability
-exec_always /usr/bin/mako
-exec_always /usr/bin/nm-applet
-exec_always /usr/bin/mousepad
+exec /usr/bin/mako
+exec /usr/bin/nm-applet
+exec /usr/bin/mousepad
