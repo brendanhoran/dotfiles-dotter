@@ -6,7 +6,7 @@
 depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts", "base-os-systemd-unit-dropins"]
 
 [user]
-depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
+depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 
 ### END Package group mappings ###
 
@@ -130,6 +130,11 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish"]
 "desktop/fish/vscode-integration.fish" = "~/.config/fish/conf.d/vscode-integration.fish"
 "desktop/fish/misc.fish" = "~/.config/fish/conf.d/misc.fish"
 "desktop/fish/git.fish" = "~/.config/fish/conf.d/git.fish"
+
+[ssh]
+
+[ssh.files]
+"desktop/ssh-config" = "~/.ssh/config"
 
 
 ### END User /home config and dot files ###
