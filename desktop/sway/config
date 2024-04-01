@@ -36,8 +36,8 @@ exec swayidle -w \
 input type:touchpad {
     dwt enabled
     tap enabled
-    repeat_delay 500
-    repeat_rate 25
+#    repeat_delay 500
+#    repeat_rate 25
 }
 
 ### Key bindings
