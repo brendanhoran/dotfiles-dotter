@@ -1,4 +1,13 @@
 # Launch apps needed to support desktop usability
+#
+# Polkit agent
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+
+# Desktop notification agent
 exec /usr/bin/mako
+
+# Network manager agent
 exec /usr/bin/nm-applet
+
+# Mousepad to act as a text scratchpad
 exec /usr/bin/mousepad
