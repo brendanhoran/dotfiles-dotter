@@ -3,6 +3,9 @@
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 # Use QT platform abstraction and qtct to handle themes for QT apps
 export QT_QPA_PLATFORMTHEME=qt5ct
+# Enable Java apps to run in non-parenting WM. Fixes app starts as blank with no menus or anything
+# https://github.com/swaywm/sway/wiki#issues-with-java-applications
+export _JAVA_AWT_WM_NONREPARENTING=1
 # Where to save screenshots when using grimshot and others
 export XDG_SCREENSHOTS_DIR="/home/brendan/screenshots"
 # Various local paths to append
