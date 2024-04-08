@@ -9,8 +9,17 @@
     // Right is status and indicators
     "modules-left": ["sway/workspaces",],
     "modules-center": ["sway/window"],
+
+    {{! Modules config for work machine}}
+    {{#if (eq dotter.hostname "workbox")}}
+    "modules-right": ["cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock", "clock#hk", "clock#utc"],
+    {{~/if}}
+
+    {{! Modules config for personal machine}}
+    {{#if (eq dotter.hostname "smd")}}
     "modules-right": ["cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock"],
-    
+    {{~/if}}
+
     // Workspace config
     "sway/workspaces": {
         "format": "{name}",
@@ -58,17 +67,17 @@
     },
 
     // Time in Hong Kong
-    // HH:MM dd/mm
+    // HH:MM
     "clock#hk": {
-        "format": "{:%H:%M %d/%m}",
+        "format": "HKT {:%H:%M}",
         "timezone": "Asia/Hong_Kong",
         "tooltip": false
     },
 
     // Time in UTC
-    // HH:MM dd/mm
+    // HH:MM
     "clock#utc": {
-        "format": "{:%H:%M %d/%m}",
+        "format": "UTC: {:%H:%M}",
         "timezone": "Etc/UTC",
         "tooltip": false
     },

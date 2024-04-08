@@ -1,0 +1,8 @@
+# Host name based include file
+# Use local.tml to override any sensitive items
+includes = []
+packages = ["user"]
+
+[files]
+
+[variables]

@@ -108,7 +108,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 [waybar]
 
 [waybar.files]
-"desktop/waybar/config" = "~/.config/waybar/config"
+"desktop/waybar/config" = { target = "~/.config/waybar/config", type = "template" }
 "desktop/waybar/style.css" = "~/.config/waybar/style.css"
 
 [wofi]
