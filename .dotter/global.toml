@@ -30,7 +30,11 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/sysctl-docker" = { target = "/etc/sysctl.d/docker.conf",  type = "template" }
 "base-os/secutity-limits.d/70-audio.conf" = { target = "/etc/security/limits.d/70-audio.conf",  type = "template" }
 "base-os/tmpfiles-energy-perf" = { target = "/etc/tmpfiles.d/energy_performance_preference.conf", type = "template" }
-"base-os/modprobe-iwlwifi" = { target = "/etc/modprobe.d/iwlwifi.conf" , type = "template" }
+"base-os/modprobe-iwlwifi" = { target = "/etc/modprobe.d/iwlwifi.conf", type = "template" }
+#
+# Custom sysusers frile for tss to fix bug:
+# https://bugs.gentoo.org/925524
+"base-os/sysusers-tpm2-tss-config" = { target = "/usr/lib/sysusers.d/tpm2-tss.conf", type = "template" }
 
 [base-os-dracut]
 

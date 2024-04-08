@@ -1,0 +1,2 @@
+u       tss     59:tss  Trusted\ Software\ Stack\ for\ TPMs\ user       /dev/null       /sbin/nologin
+g       tss     59
