@@ -1,0 +1,15 @@
+# File managed by version control
+
+{{#if (eq dotter.hostname "workbox")}}
+# Packages needed for Vagrant
+app-emulation/vagrant
+dev-ruby/googleapis-common-protos-types
+dev-ruby/grpc
+dev-ruby/hashicorp-checkpoint
+dev-ruby/rgl
+dev-ruby/vagrant_cloud
+dev-ruby/ipaddr
+dev-ruby/pairing_heap
+dev-ruby/stream
+dev-ruby/google-protobuf
+{{~/if}}

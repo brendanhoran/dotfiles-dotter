@@ -52,6 +52,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 
 [base-os-gentoo-accept-keywords.files]
 "base-os/gentoo-accept-keywords/10-base-os" = { target = "/etc/portage/package.accept_keywords/10-base-os", type = "template" }
+"base-os/gentoo-accept-keywords/55-virtualization" = { target =  "/etc/portage/package.accept_keywords/55-virtualization", type = "template" }
 "base-os/gentoo-accept-keywords/60-desktop-apps" = { target = "/etc/portage/package.accept_keywords/60-desktop-apps",  type = "template" }
 
 [base-os-gentoo-package-use]
