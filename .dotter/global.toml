@@ -71,6 +71,8 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/gentoo-package-use/50-networking" = { target = "/etc/portage/package.use/50-networking", type = "template" }
 "base-os/gentoo-package-use/55-virtualization" = { target = "/etc/portage/package.use/55-virtualization", type = "template" }
 "base-os/gentoo-package-use/60-desktop-apps" = { target = "/etc/portage/package.use/60-desktop-apps", type = "template" }
+"base-os/gentoo-package-use/65-fonts" = { target = "/etc/portage/package.use/65-fonts", type = "template" }
+"base-os/gentoo-package-use/70-dev-tools" = { target = "/etc/portage/package.use/70-dev-tools", type = "template" }
 
 [base-os-gentoo-env-override]
 
