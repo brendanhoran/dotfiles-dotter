@@ -53,4 +53,7 @@ This is not the best way, but dotter is also not designed to manage operating sy
 
 ## Misc
 You can find screen shots under the `misc/` directory.
-I also save my kernel config here too.
+I also save:
+Current kernel config
+Gentoo installed package list (world file)
+
