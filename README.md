@@ -20,6 +20,8 @@ Setup currently is:
 As of March 2024 this is what the above looks like.
 ![desktop-screenshot-march-2024](https://github.com/brendanhoran/dotfiles-dotter/assets/3905013/e110ddd6-2732-4092-919f-5b9cd22395f1)
 
+There are additonal screenshots in the `misc/` directory.
+
 
 ## OS configs
 
@@ -54,6 +56,6 @@ This is not the best way, but dotter is also not designed to manage operating sy
 ## Misc
 You can find screen shots under the `misc/` directory.
 I also save:
-Current kernel config
-Gentoo installed package list (world file)
+* Current kernel config
+* Gentoo installed package list (world file)
 
