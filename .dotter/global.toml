@@ -112,6 +112,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "desktop/sway/config" = "~/.config/sway/config"
 "desktop/sway/launch-supporting-apps" = "~/.config/sway/config.d/launch-supporting-apps"
 "desktop/sway/custom-key-binds" = "~/.config/sway/config.d/custom-key-binds"
+"desktop/sway/systemd-user-env" = "~/.config/sway/config.d//systemd-user-env"
 
 [waybar]
 
