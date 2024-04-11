@@ -14,3 +14,6 @@ gui-apps/wlr-randr
 dev-python/i3ipc
 gui-apps/wev
 app-misc/brightnessctl
+
+gui-apps/kanshi
+dev-libs/libscfg

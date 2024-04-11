@@ -105,6 +105,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "desktop/wezterm-config" = "~/.config/wezterm/wezterm.lua"
 "desktop/gpg-conf" =  "~/.gnupg/gpg.conf"
 "desktop/htop-config" = "~/.config/htop/htoprc"
+"desktop/kanshi-config" = "~/.config/kanshi/config"
 
 [sway]
 

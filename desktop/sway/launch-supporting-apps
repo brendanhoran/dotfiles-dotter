@@ -11,3 +11,9 @@ exec /usr/bin/nm-applet
 
 # Mousepad to act as a text scratchpad
 exec /usr/bin/mousepad
+
+# Start kanshi display manager
+exec_always {
+  pkill kanshi
+  kanshi &
+}
