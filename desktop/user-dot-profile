@@ -8,6 +8,8 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONREPARENTING=1
 # Where to save screenshots when using grimshot and others
 export XDG_SCREENSHOTS_DIR="/home/brendan/screenshots"
+# Force GPG / GPG agent to use CLI/tty tools (eg: for pinentry)
+export GPG_TTY=$(tty)
 # Various local paths to append
 export PATH="$PATH:/home/brendan/.cargo/bin"
 export PATH="$PATH:/opt/bin"
