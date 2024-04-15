@@ -52,6 +52,9 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/greet/environments" = { target = "/etc/greetd/environments",  type = "template" }
 "base-os/greet/gtkgreet.css" = { target = "/etc/greetd/gtkgreet.css",  type = "template" }
 "base-os/greet/sway-config" = { target = "/etc/greetd/sway-config", type = "template" }
+#
+# Gentoo is missing the PAM dropin for greetd
+"base-os/greet/pam-dropin" = { taget = "/etc/pam.d/greetd", type = "template" }
 
 [base-os-gentoo-accept-keywords]
 
