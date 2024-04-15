@@ -5,4 +5,5 @@ profile laptop {
 profile dock {
         output DP-3 enable mode 3840x2160
         output eDP-1 disable
+	exec nmcli radio wifi off
 }
