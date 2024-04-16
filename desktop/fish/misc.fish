@@ -8,3 +8,10 @@ if not pgrep -f ssh-agent >/dev/null
       keychain --eval --quiet --agents ssh,gpg $SSH_KEYS_TO_AUTOLOAD | source
   end
 end
+
+
+# Force GPG-agent to use CLI tools (eg for pinentry)
+# See: https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
+if status is-interactive
+  set -gx GPG_TTY (tty)
+end
