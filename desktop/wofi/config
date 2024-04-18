@@ -1,5 +1,5 @@
 hide_scroll=true
-show=drun
+show=drun,run
 width=15%
 lines=6
 line_wrap=word
