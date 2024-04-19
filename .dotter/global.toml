@@ -94,6 +94,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 [base-os-power-managment.files]
 "base-os/power-managment/00-my-defaults.conf" = { target = "/etc/tlp.d/00-my-defaults.conf", type = "template" }
 "base-os/power-managment/10-ac-dock-caldigit.conf" = { target = "/etc/tlp.d/10-ac-dock-caldigit.conf", type = "template" }
+"base-os/power-managment/logind.conf" = { target = "/etc/systemd/logind.conf", type = "template" }
 
 [my-scripts]
 
