@@ -31,7 +31,6 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/secutity-limits.d/70-audio.conf" = { target = "/etc/security/limits.d/70-audio.conf",  type = "template" }
 "base-os/tmpfiles-energy-perf" = { target = "/etc/tmpfiles.d/energy_performance_preference.conf", type = "template" }
 "base-os/modprobe-iwlwifi" = { target = "/etc/modprobe.d/iwlwifi.conf", type = "template" }
-"base-os/tlp-dropin-ac-dock-caldigit.conf" = { target = "/etc/tlp.d/ac-dock-caldigit.conf", type = "template" }
 #
 # Custom sysusers frile for tss to fix bug:
 # https://bugs.gentoo.org/925524
@@ -90,6 +89,11 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/systemd-unit-dropins/network-manager-set-logging-to-warn" = { target = "/etc/systemd/system/NetworkManager.service.d/set-logging-to-warn.conf", type = "template" }
 "base-os/systemd-unit-dropins/rtkit-set-realtime-prio" = { target = "/etc/systemd/system/rtkit-daemon.service.d/enable-realtime.conf", type = "template" }
 
+[base-os-power-managment]
+
+[base-os-power-managment.files]
+"base-os/power-managment/00-my-defaults.conf" = { target = "/etc/tlp.d/00-my-defaults.conf", type = "template" }
+"base-os/power-managment/10-ac-dock-caldigit.conf" = { target = "/etc/tlp.d/10-ac-dock-caldigit.conf", type = "template" }
 
 [my-scripts]
 
