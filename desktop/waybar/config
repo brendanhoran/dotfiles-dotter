@@ -77,7 +77,7 @@
     // Time in UTC
     // HH:MM
     "clock#utc": {
-        "format" "UTC: {:%H:%M}",
+        "format": "UTC: {:%H:%M}",
         "timezone": "Etc/UTC",
         "tooltip": false
     },
