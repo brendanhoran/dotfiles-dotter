@@ -11,3 +11,4 @@ export XDG_SCREENSHOTS_DIR="/home/brendan/screenshots"
 # Various local paths to append
 export PATH="$PATH:/home/brendan/.cargo/bin"
 export PATH="$PATH:/opt/bin"
+export PATH="$PATH:/opt/yosys/oss-cad-suite/bin"
