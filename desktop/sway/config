@@ -175,5 +175,6 @@ bar {
     for_window [window_type = "menu"] floating enable
     # Set size for "Save As" window to prevent it using up too much vertical space
     for_window [title="Save As"] floating enable, resize set 500 400
+    for_window [title="Extension: (Raindrop.io)*"] floating enable, resize set 420 550
 
 include config.d/*
