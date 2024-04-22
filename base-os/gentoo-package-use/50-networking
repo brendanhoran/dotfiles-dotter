@@ -5,3 +5,6 @@ net-misc/networkmanager -modemmanager -ppp -bluetooth
 gnome-extra/nm-applet -modemmanager appindicator
 
 net-firewall/nftables xtables
+
+# No need to decode SNMP MIB's on the fly so remove smi package
+net-analyzer/tcpdump -smi
