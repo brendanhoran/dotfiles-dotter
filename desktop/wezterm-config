@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -16,6 +17,32 @@ config.default_cursor_style = 'SteadyUnderline'
 config.cursor_thickness = '4.0'
 
 config.hide_mouse_cursor_when_typing = false
+
+config.mouse_bindings = {
+  -- Change the default click behavior so that it only selects
+  -- text and doesn't open hyperlinks
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = act.CompleteSelection 'ClipboardAndPrimarySelection',
+  },
+
+  -- Make CTRL-Click open hyperlinks
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'CTRL',
+    action = act.OpenLinkAtMouseCursor,
+  },
+
+  -- Change the default click behavior so that it populates
+  -- the Clipboard rather the PrimarySelection.
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor 'Clipboard',
+  },
+
+}
 
 -- and finally, return the configuration to wezterm
 return config
