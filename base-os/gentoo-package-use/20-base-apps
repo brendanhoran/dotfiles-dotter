@@ -9,3 +9,7 @@
 # Disable gtk to ensure gnome stuff is not pulled in:
 # pinentry-gnome3.c:26:10: fatal error: gcr/gcr-base.h: No such file or directory
 app-crypt/pinentry -gtk
+sys-libs/zlib minizip
+
+# Useful flags for GDB
+dev-debug/gdb cet source-highlight

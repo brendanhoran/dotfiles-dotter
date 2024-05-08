@@ -8,3 +8,6 @@ net-firewall/nftables xtables
 net-analyzer/tcpdump -smi
 
 net-analyzer/wireshark wifi
+
+# no GUI needed
+net-analyzer/mtr -gtk

@@ -7,7 +7,7 @@
 */* -accessibility -gnome -X
 
 # systemd use flags
-sys-apps/systemd boot fido2 -dns-over-tls -http -resolvconf
+sys-apps/systemd boot fido2 elfutils -dns-over-tls -http -resolvconf
 
 # uki and kernel
 sys-kernel/installkernel uki dracut systemd-boot
@@ -19,3 +19,6 @@ dev-libs/lzo static-libs
 
 # Enable displaying kernel module signatures
 sys-apps/kmod pkcs7
+
+# firmware update dervice LVFS/fwupd.org
+sys-apps/fwupd uefi tpm synaptics spi nvme cbor bluetooth amt flashrom gnutls lzma
