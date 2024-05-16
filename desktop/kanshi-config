@@ -1,6 +1,6 @@
 profile laptop {
-        output eDP-1 enable mode 2800x1800 scale 1.2
-        exec nmcli radio wif on
+        output eDP-1 enable mode 2880x1800@90.001Hz scale 1.2
+        exec nmcli radio wifi on
 }
 
 profile dock {
