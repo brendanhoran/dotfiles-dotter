@@ -7,7 +7,7 @@
     // Left side holds workspace numbers
     // Middle is the active window title
     // Right is status and indicators
-    "modules-left": ["sway/workspaces",],
+    "modules-left": ["sway/workspaces","sway/mode"],
     "modules-center": ["sway/window"],
 
     {{! Modules config for work machine}}
