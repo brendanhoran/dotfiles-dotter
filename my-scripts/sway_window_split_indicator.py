@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+""" Listen for the current Sway window split direction
+    Print split direction to stdout when event is received.
+"""
+__author__ = "Brendan Horan"
+__license__ = "BSD-3-Clause"
+
 import i3ipc.aio as swayipc
 import asyncio
 
