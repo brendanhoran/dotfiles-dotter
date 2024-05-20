@@ -1,7 +1,7 @@
 # File managed by version control
 
 # Global enabled use flags
-*/* lvm wayland cryptsetup initramfs man
+*/* lvm wayland cryptsetup man
 
 # Global disabled use flags
 */* -accessibility -gnome -X
@@ -11,6 +11,10 @@ sys-apps/systemd boot fido2 elfutils -dns-over-tls -http -resolvconf
 
 # uki and kernel
 sys-kernel/installkernel uki dracut systemd-boot
+
+# Enable initramfs support for required packages (See: 2024-05-17-dracut-ext-kmods)
+sys-firmware/intel-microcode initramfs
+sys-kernel/linux-firmware initramfs
 
 # sys-power/suspend needs the following packages built as static
 dev-libs/libgcrypt static-libs
