@@ -4,21 +4,12 @@
     "position": "top",
     "height": 30,
 
-    // Left side holds workspace numbers
+    // Left side holds workspace numbers, and indicators
     // Middle is the active window title
-    // Right is status and indicators
-    "modules-left": ["sway/workspaces","sway/mode"],
+    // Right is status and tray
+    "modules-left": ["sway/workspaces", "custom/split_direction", "sway/mode"],
     "modules-center": ["sway/window"],
-
-    {{! Modules config for work machine}}
-    {{#if (eq dotter.hostname "workbox")}}
-    "modules-right": ["idle_inhibitor", "cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock", "clock#hk", "clock#utc"],
-    {{~/if}}
-
-    {{! Modules config for personal machine}}
-    {{#if (eq dotter.hostname "smd")}}
     "modules-right": ["cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock"],
-    {{~/if}}
 
     // Workspace config
     "sway/workspaces": {
@@ -32,7 +23,6 @@
         "tooltip": false
     },
 
-    //
     // List of modules
     //
 
@@ -122,6 +112,7 @@
         "tooltip": false
     },
 
+    // Applet to disable screen lock
     "idle_inhibitor": {
         "format": "{icon}",
         "tooltip": true,
@@ -131,5 +122,12 @@
             "activated": "",
             "deactivated": ""
         },
+    },
+
+    // Script to show window split direction
+    "custom/split_direction": {
+        "format": "Split direction: <span weight=\"bold\">{}</span>",
+	"max-length": 17,
+        "exec": "/home/brendan/mess/brr-async.py",
     },
 }
