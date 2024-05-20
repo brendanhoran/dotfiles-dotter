@@ -9,7 +9,15 @@
     // Right is status and tray
     "modules-left": ["sway/workspaces", "custom/split_direction", "sway/mode"],
     "modules-center": ["sway/window"],
+
+    {{! Modules config for work machine}}
+    {{~#if (eq dotter.hostname "workbox")}}
+    "modules-right": ["idle_inhibitor", "cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock", "clock#hk", "clock#utc"],
+    {{/if}}
+    {{! Modules config for personal machine}}
+    {{~#if (eq dotter.hostname "smd")}}
     "modules-right": ["cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock"],
+    {{/if}}
 
     // Workspace config
     "sway/workspaces": {
@@ -128,6 +136,6 @@
     "custom/split_direction": {
         "format": "Split direction: <span weight=\"bold\">{}</span>",
 	"max-length": 17,
-        "exec": "/home/brendan/mess/brr-async.py",
+        "exec": "/usr/local/bin/sway_window_split_indicator.py",
     },
 }
