@@ -20,7 +20,15 @@ Setup currently is:
 As of March 2024 this is what the above looks like.
 ![desktop-screenshot-march-2024](https://github.com/brendanhoran/dotfiles-dotter/assets/3905013/e110ddd6-2732-4092-919f-5b9cd22395f1)
 
-There are additonal screenshots in the `misc/` directory.
+There are additional screenshots in the `misc/` directory.
+
+### Window split indicator
+
+Since I run all windows with no borders, it can be hard to recall what direction the window split is set to.   
+Normally this is via a coloured window border to show direction either Horizontal or Vertical.   
+I wrote a [Python script](ihttps://github.com/brendanhoran/dotfiles-dotter/blob/main/my-scripts/sway_window_split_indicator.py) that can output to your bar and shows the next split direction.   
+It uses async event loops to subscribe to the `window::focus` and `binding` events from the sway IPC.   
+![Split Indicator](https://raw.githubusercontent.com/brendanhoran/dotfiles-dotter/main/misc/window_split_indicator.png)
 
 
 ## OS configs
@@ -37,13 +45,13 @@ To deploy the `user` group use `dotter deploy`.
 Using `-vv` to show details or `-d` for a dry-run.
 
 To deploy the `os` group you must be root, since this configuration copies files to `/etc` and other locations.
-In order to avoid removing/manging the symlinks handled by the `user` group you must use a diffrent cache file.
+In order to avoid removing/managing the symlinks handled by the `user` group you must use a different cache file.
 
 Example:
 ```
 dotter -d -l .dotter/base-os.toml --cache-file .dotter/base-os-cache.toml deploy
 ```
-This results in a dry-run using a local config of `base-os.toml` and a seperate cache file.
+This results in a dry-run using a local config of `base-os.toml` and a separate cache file.
 
 ### Notes
 
@@ -58,4 +66,3 @@ You can find screen shots under the `misc/` directory.
 I also save:
 * Current kernel config
 * Gentoo installed package list (world file)
-
