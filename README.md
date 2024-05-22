@@ -26,7 +26,7 @@ There are additional screenshots in the `misc/` directory.
 
 Since I run all windows with no borders, it can be hard to recall what direction the window split is set to.   
 Normally this is via a coloured window border to show direction either Horizontal or Vertical.   
-I wrote a [Python script](ihttps://github.com/brendanhoran/dotfiles-dotter/blob/main/my-scripts/sway_window_split_indicator.py) that can output to your bar and shows the next split direction.   
+I wrote a [Python script](ihttps://github.com/brendanhoran/dotfiles-dotter/blob/main/my-scripts/sway_window_split_indicator.py) that can output to your bar and shows the next split direction as either `H` or `V`.    
 It uses async event loops to subscribe to the `window::focus` and `binding` events from the sway IPC.   
 ![Split Indicator](https://raw.githubusercontent.com/brendanhoran/dotfiles-dotter/main/misc/window_split_indicator.png)
 
