@@ -8,3 +8,5 @@ app-editors/vscode Microsoft-vscode
 media-fonts/nerd-fonts Vic-Fieger-License
 
 app-emulation/virtualbox-extpack-oracle PUEL-11
+
+app-arch/7zip unRAR

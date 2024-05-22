@@ -17,3 +17,5 @@ app-misc/brightnessctl
 
 gui-apps/kanshi
 dev-libs/libscfg
+
+app-arch/7zip
