@@ -16,7 +16,7 @@
     {{/if}}
     {{! Modules config for personal machine}}
     {{~#if (eq dotter.hostname "smd")}}
-    "modules-right": ["cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock"],
+    "modules-right": ["idle_inhibitor", "cpu", "memory", "backlight", "temperature", "battery", "custom/separator", "tray", "custom/separator", "clock"],
     {{/if}}
 
     // Workspace config
@@ -134,6 +134,7 @@
 
     // Script to show window split direction
     "custom/split_direction": {
+        "escape": true,
         "format": "Split direction: <span weight=\"bold\">{}</span>",
 	"max-length": 17,
         "exec": "/usr/local/bin/sway_window_split_indicator.py",
