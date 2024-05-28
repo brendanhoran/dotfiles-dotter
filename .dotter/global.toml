@@ -80,8 +80,8 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 [base-os-gentoo-env-override]
 
 [base-os-gentoo-env-override.files]
-"base-os/gentoo-env/no-sequential-builds.conf" = { target = "/etc/portage/env/no-sequential-builds.conf", type = "template" }
-"base-os/gentoo-env/package.env" = { target = "/etc/portage/package.env", type = "template" }
+"base-os/gentoo-env/force-makefile-sequential-builds.conf" = { target = "/etc/portage/env/force-makefile-sequential-builds.conf", type = "template" }
+"base-os/gentoo-env/makefile-sequential-builds" = { target = "/etc/portage/package.env/makefile-sequential-builds", type = "template" }
 
 [base-os-systemd-unit-dropins]
 
