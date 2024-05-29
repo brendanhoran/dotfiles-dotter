@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+#
+# Launch Google Chrome with full GPU offload / hardware rendering.
+# Required for Google Meets to not eat CPU / software rendering mode
+# The following options need to be enabled in chrome://flags
+#  #ignore-gpu-blocklist, #enable-zero-copy, #enable-unsafe-webgpu, #enable-vulkan
+#
+/usr/bin/google-chrome-stable --enable-features=VaapiVideoDecoder,VaapiVideoEncoder

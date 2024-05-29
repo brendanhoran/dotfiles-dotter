@@ -101,6 +101,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 [my-scripts.files]
 "my-scripts/screenshot.sh" = { target = "/usr/local/bin/screenshot.sh", type = "template" }
 "my-scripts/sway_window_split_indicator.py" = { target = "/usr/local/bin/sway_window_split_indicator.py", type = "template" }
+"my-scripts/launch-chrome-with-gpu-offload" = { target = "/usr/local/bin/meets", type = "template" }
 
 ### END OS level files ###
 
