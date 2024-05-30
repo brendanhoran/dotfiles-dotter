@@ -1,0 +1,5 @@
+# Rule to set udev permissions on the Jabra Speak2 75
+# Allows web browsers to use the device for mute and device state
+# Source:
+# https://github.com/balansse/google-meet-jabra/issues/14#issuecomment-1784954400
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0b0e", ATTRS{idProduct}=="24ef", MODE="0660", GROUP="plugdev"

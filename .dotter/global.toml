@@ -96,6 +96,11 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/power-managment/10-ac-dock-caldigit.conf" = { target = "/etc/tlp.d/10-ac-dock-caldigit.conf", type = "template" }
 "base-os/power-managment/logind.conf" = { target = "/etc/systemd/logind.conf", type = "template" }
 
+[udev-rules]
+
+[udev-rules.files]
+"base-os/udev-rules/70-jabra.rules" = { target = "/etc/udev/rules.d/70-jabra.rules", type = "template" }
+
 [my-scripts]
 
 [my-scripts.files]
