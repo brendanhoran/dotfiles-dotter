@@ -1,5 +1,10 @@
 # File managed by version control
 
+# Firefox
+# Use rapid channel vs esr
+www-client/firefox
+dev-libs/nss
+
 x11-terms/wezterm
 gui-apps/gtkgreet
 
