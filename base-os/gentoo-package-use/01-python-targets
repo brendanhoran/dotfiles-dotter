@@ -2,3 +2,6 @@
 
 # Manage PYTHON_TARGETS and PYTHON_TARGETS
 # https://wiki.gentoo.org/wiki/Project:Python/PYTHON_TARGETS
+
+# VirtualBox needs Python 3.11 (06-2024)
+app-emulation/virtualbox PYTHON_SINGLE_TARGET: -* python3_11
