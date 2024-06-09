@@ -11,3 +11,6 @@ net-analyzer/wireshark wifi
 
 # no GUI needed
 net-analyzer/mtr -gtk
+
+# Build with elf and bpf support
+sys-apps/iproute2 elf bpf
