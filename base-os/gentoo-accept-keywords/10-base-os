@@ -1,5 +1,10 @@
 # File managed by version control
 
+{{! Enable upstream stable vs Gentoo stable on personal laptop }}
+{{#if (eq dotter.hostname "smd")}}
+sys-kernel/gentoo-sources
+{{~/if}}
+
 sys-power/tlp
 
 sys-apps/likwid
