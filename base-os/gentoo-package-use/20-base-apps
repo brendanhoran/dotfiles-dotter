@@ -12,4 +12,5 @@ app-crypt/pinentry -gtk
 sys-libs/zlib minizip
 
 # Useful flags for GDB
-dev-debug/gdb cet source-highlight
+# multitarget allwos crossdev gdb
+dev-debug/gdb cet source-highlight multitarget
