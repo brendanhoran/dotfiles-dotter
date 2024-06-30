@@ -100,6 +100,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 
 [udev-rules.files]
 "base-os/udev-rules/70-jabra.rules" = { target = "/etc/udev/rules.d/70-jabra.rules", type = "template" }
+"base-os/udev-rules/99-precursor-usb.rule" = { target = "/etc/udev/rules.d/99-precursor-usb.rule", type = "template" }
 
 [my-scripts]
 

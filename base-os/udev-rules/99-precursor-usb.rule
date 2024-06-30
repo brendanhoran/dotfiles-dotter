@@ -1,0 +1,4 @@
+# Rules for the Precursor device
+# https://github.com/betrusted-io/betrusted-wiki/wiki/Updating-Your-Device#linux
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="5bf0", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3613", GROUP="plugdev", TAG+="uaccess"
