@@ -24,12 +24,12 @@ To fix this, I created a home directory for the `greetd` user and masked the sys
 
 Example entry in `/etc/passwd`:   
 ```
-greetd:x:396:396:User for gui-libs/greetd:/var/lib/greetd/home:/sbin/nologin```
+greetd:x:396:396:User for gui-libs/greetd:/var/lib/greetd/home:/sbin/nologin
 
 ```
 
 This sets the home directory to `/var/lib/greetd/home`.    
-I then create the following symlinks in the `/var/lib/greetd/home/.config/systemd/user` directory. You will need to create this or you can become the greetd user and use systemdctl command.   
+I then create the following symlinks in the `/var/lib/greetd/home/.config/systemd/user` directory. You will need to create this diretory or you can become the greetd user and use systemdctl command.   
 
 My symlinks:
 ```
