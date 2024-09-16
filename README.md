@@ -30,6 +30,10 @@ I wrote a [Python script](ihttps://github.com/brendanhoran/dotfiles-dotter/blob/
 It uses async event loops to subscribe to the `window::focus` and `binding` events from the sway IPC.   
 ![Split Indicator](https://raw.githubusercontent.com/brendanhoran/dotfiles-dotter/main/misc/window_split_indicator.png)
 
+### Fixing delays in Greetd and XDG portals
+If you have delays in the GTK greeter appearing on startup see the details in the file below.       
+See the README in the [greetd-xdg-portal-fixes](https://raw.githubusercontent.com/brendanhoran/dotfiles-dotter/main/misc/greetd-xdg-portal-fixes/README.md) directory.    
+
 
 ## OS configs
 
