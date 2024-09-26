@@ -44,6 +44,12 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "base-os/dracut/microcode.conf" = { target = "/etc/dracut.conf.d/microcode.conf", type = "template" }
 "base-os/dracut/modules.conf" = { target = "/etc/dracut.conf.d/modules.conf",  type = "template" }
 
+[base-os-kernel]
+
+[base-os-kernel.files]
+"base-os/kernel/install.conf" = { target = "/etc/kernel/install.conf", type = "template" }
+
+
 [base-os-greet]
 
 [base-os-greet.files]
