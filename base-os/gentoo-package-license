@@ -10,3 +10,5 @@ media-fonts/nerd-fonts Vic-Fieger-License
 app-emulation/virtualbox-extpack-oracle PUEL-11
 
 app-arch/7zip unRAR
+
+www-client/google-chrome google-chrome

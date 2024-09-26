@@ -6,6 +6,9 @@
 # Global disabled use flags
 */* -accessibility -gnome -X
 
+# Global enabled GCC flags
+sys-devel/gcc graphite
+
 # systemd use flags
 sys-apps/systemd boot fido2 elfutils -dns-over-tls -http -resolvconf
 
