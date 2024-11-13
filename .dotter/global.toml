@@ -48,6 +48,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 
 [base-os-kernel.files]
 "base-os/kernel/install.conf" = { target = "/etc/kernel/install.conf", type = "template" }
+"base-os/kernel/postinst.d/98-sbctl-sign-fwupdate-bootx64.install" = { target = "/etc/kernel/postinst.d/98-sbctl-sign-fwupdate-bootx64.install", type = "template" }
 
 
 [base-os-greet]

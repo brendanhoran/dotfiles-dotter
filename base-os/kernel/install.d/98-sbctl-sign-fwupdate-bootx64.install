@@ -1,0 +1,30 @@
+#!/bin/env bash
+# Gentoo post install hook used by sys-kernel/installkernel
+# Needed if secureboot is enabled, since all efi binaries need to be signed.
+# Function: To ensure all efi binaries in the /efi partition are signed for secureboot
+#   sys-apps/fwupd requires 'DisableShimForSecureBoot=true' to be set in '/etc/fwupd/fwupd.conf'
+#   this enables fwupd to sign/create fwupdx64.efi.signed.
+#
+#   Use sbctl sign all to sign all enrolled files
+#   Set to check for a minium of three files, kernel, fwupdate and the default boot64 binary
+#   Files need to be enrolled manually via 'sbctl sign --save FILENAME_TO_ENROLL'
+
+printf 'Running post hook: 98-sbctl-sign-fwupdate-bootx64.\n'
+if [ -f /usr/libexec/fwupd/efi/fwupdx64.efi.signed ]; then
+printf 'Copy pre-signed fwupdate binary to EFI partition.\n'
+  cp /usr/libexec/fwupd/efi/fwupdx64.efi.signed /efi/EFI/gentoo/fwupdx64.efi
+else
+  printf 'Did not find fwupdx64.efi.signed file to copy, check fwupd.conf.\n'
+  exit 1
+fi
+
+if [[ $(sbctl list-files | grep -c "Signed") -ge 3 ]]; then
+  printf 'sbctl: Signing all saved/enrolled files.\n'
+  sbctl sign-all
+
+  printf 'sbctl: Verify all signed files that are enrolled.\n'
+  sbctl verify
+else
+  printf 'sbctl: Fewer than three files are enrolled for signing. Please check the enrolled files manually.\n'
+  exit 1
+fi
