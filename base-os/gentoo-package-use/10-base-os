@@ -1,7 +1,7 @@
 # File managed by version control
 
 # Global enabled use flags
-*/* lvm wayland cryptsetup man
+*/* lvm wayland cryptsetup man secureboot
 
 # Global disabled use flags
 */* -accessibility -gnome -X
@@ -10,10 +10,10 @@
 sys-devel/gcc graphite
 
 # systemd use flags
-sys-apps/systemd boot fido2 elfutils -dns-over-tls -http -resolvconf
+sys-apps/systemd boot fido2 elfutils ukify tpm bpf -dns-over-tls -http -resolvconf
 
 # uki and kernel
-sys-kernel/installkernel uki dracut systemd-boot
+sys-kernel/installkernel uki dracut systemd-boot ukify
 
 # Enable initramfs support for required packages (See: 2024-05-17-dracut-ext-kmods)
 sys-firmware/intel-microcode initramfs

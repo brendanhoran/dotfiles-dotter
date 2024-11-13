@@ -17,8 +17,6 @@ media-libs/libpulse X
 media-libs/libsdl2 X
 media-fonts/fontawesome X
 media-fonts/noto-cjk X
-
-# X flag needed for VLC and its deps
 media-video/vlc X
 media-libs/libva X
 media-video/ffmpeg X
