@@ -26,7 +26,7 @@ There are additional screenshots in the `misc/` directory.
 
 Since I run all windows with no borders, it can be hard to recall what direction the window split is set to.   
 Normally this is via a coloured window border to show direction either Horizontal or Vertical.   
-I wrote a [Python script](ihttps://github.com/brendanhoran/dotfiles-dotter/blob/main/my-scripts/sway_window_split_indicator.py) that can output to your bar and shows the next split direction as either `H` or `V`.    
+I wrote a [Python script](https://github.com/brendanhoran/dotfiles-dotter/blob/main/my-scripts/sway_window_split_indicator.py) that can output to your bar and shows the next split direction as either `H` or `V`.    
 It uses async event loops to subscribe to the `window::focus` and `binding` events from the sway IPC.   
 ![Split Indicator](https://raw.githubusercontent.com/brendanhoran/dotfiles-dotter/main/misc/window_split_indicator.png)
 
@@ -68,5 +68,7 @@ This is not the best way, but dotter is also not designed to manage operating sy
 ## Misc
 You can find screen shots under the `misc/` directory.
 I also save:
-* Current kernel config
-* Gentoo installed package list (world file)
+* Current kernel config -- kernel-config-x.y
+* Gentoo installed package list (world file) -- gentoo-package-set
+* Greetd xdg portal fixes -- See above section about delays in greetd
+* Screenshots of my desktop
