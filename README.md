@@ -4,7 +4,9 @@ Setup currently is:
 * Gentoo Linux
 * Custom config for the X1
 * Unified kernel image / EFI booting
-* systemd boot
+* Secureboot with my own keys
+* Systemd boot
+* Systemd measured boot /TPM2 PCR validation
 * Dracut
 * LVM
 * LUKS crypt volumes
@@ -66,7 +68,6 @@ https://github.com/SuperCuber/dotter/issues/77
 This is not the best way, but dotter is also not designed to manage operating systems.
 
 ## Misc
-You can find screen shots under the `misc/` directory.
 I also save:
 * Current kernel config -- kernel-config-x.y
 * Gentoo installed package list (world file) -- gentoo-package-set
