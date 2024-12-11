@@ -1,9 +1,10 @@
 # Host name based include file
-# Use local.tml to override any sensitive items
+# Use local.toml to override any sensitive items
 includes = []
 packages = ["user"]
 
 [files]
 "desktop/sway/launch-host-smd-apps" = "~/.config/sway/config.d/launch-host-smd-apps"
+"desktop/ssh-smd-config" = "~/.ssh/config.d/home-network.conf"
 
 [variables]

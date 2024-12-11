@@ -1,0 +1,11 @@
+# Older cisco WS-C2960CG-8TC-L
+# no matching key exchange method found.
+Host 192.168.0.10
+    KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
+    HostkeyAlgorithms +ssh-rsa
+    Ciphers aes256-cbc
+
+Host cabinet-switch
+    KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1
+    HostkeyAlgorithms +ssh-rsa
+    Ciphers aes256-cbc
