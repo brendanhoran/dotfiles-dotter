@@ -35,3 +35,11 @@ net-p2p/transmission appindicator cli
 app-arch/7zip rar
 media-libs/freetype harfbuzz
 media-video/vlc v4l
+
+net-im/zoom pulseaudio
+
+media-video/handbrake -fdk numa x265
+media-libs/x265 numa
+
+# gstreamer required by media-video/handbrake
+gui-libs/gtk gstreamer

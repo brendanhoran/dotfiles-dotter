@@ -2,3 +2,6 @@
 
 # Rust - enable rust analyzer and other helpful tools
 dev-lang/rust-bin rust-src rust-analyzer rustfmt clippy
+
+# NodeJS enable npm
+net-libs/nodejs npm
