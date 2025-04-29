@@ -1,0 +1,4 @@
+# File managed by version control
+# See: https://wiki.gentoo.org/wiki/Intel#X_drivers
+
+*/* VIDEO_CARDS: -* intel
