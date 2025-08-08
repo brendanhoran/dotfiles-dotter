@@ -73,7 +73,8 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 
 [base-os-gentoo-package-use.files]
 "base-os/gentoo-package-use/00-cpu-flags" = { target = "/etc/portage/package.use/00-cpu-flags", type = "template" }
-"base-os/gentoo-package-use/01-python-targets" = { target = "/etc/portage/package.use/01-python-targets", type = "template" }
+"base-os/gentoo-package-use/01-video-cards" = { target = "/etc/portage/package.use/01-video-cards", type = "template" }
+"base-os/gentoo-package-use/02-python-targets" = { target = "/etc/portage/package.use/02-python-targets", type = "template" }
 "base-os/gentoo-package-use/10-base-os" = { target = "/etc/portage/package.use/10-base-os", type = "template" }
 "base-os/gentoo-package-use/20-base-apps" = { target = "/etc/portage/package.use/20-base-apps",  type = "template" }
 "base-os/gentoo-package-use/30-x11-enabled" = { target = "/etc/portage/package.use/30-x11-enabled", type = "template" }

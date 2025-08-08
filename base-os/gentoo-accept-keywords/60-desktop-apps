@@ -26,3 +26,6 @@ dev-libs/libscfg
 app-arch/7zip
 
 net-im/zoom
+
+# Used by binwalk3
+app-arch/sasquatch

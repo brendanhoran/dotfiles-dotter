@@ -1,7 +1,8 @@
 #  File managed by version control
 
 # Rust - enable rust analyzer and other helpful tools
-dev-lang/rust-bin rust-src rust-analyzer rustfmt clippy
+dev-lang/rust-bin rust-src rust-analyzer rustfmt clippy verify-sig
+dev-lang/rust rust-src rust-analyzer rustfmt clippy verify-sig
 
 # NodeJS enable npm
 net-libs/nodejs npm

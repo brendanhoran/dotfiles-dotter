@@ -43,3 +43,5 @@ media-libs/x265 numa
 
 # gstreamer required by media-video/handbrake
 gui-libs/gtk gstreamer
+
+dev-db/mariadb -server
