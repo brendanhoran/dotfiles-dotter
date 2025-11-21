@@ -132,8 +132,10 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 "desktop/gtk3-settings" = "~/.config/gtk-3.0/settings.ini"
 "desktop/wezterm-config" = "~/.config/wezterm/wezterm.lua"
 "desktop/gpg-conf" =  "~/.gnupg/gpg.conf"
+"desktop/gpg-agent" =  "~/.gnupg/gpg-agent.conf"
 "desktop/htop-config" = "~/.config/htop/htoprc"
 "desktop/kanshi-config" = "~/.config/kanshi/config"
+"desktop/cargo-global" = "~/.cargo/config.toml"
 
 [sway]
 

@@ -1,0 +1,6 @@
+# Force Cargo to use CLI for Git Auth. This allows the use of YubiKeys
+# See: https://doc.rust-lang.org/cargo/reference/config.html#netgit-fetch-with-cli
+# See: https://doc.rust-lang.org/cargo/appendix/git-authentication.html?highlight=auth#git-authentication
+
+[net]
+git-fetch-with-cli = true
