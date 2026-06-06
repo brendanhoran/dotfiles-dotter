@@ -27,5 +27,5 @@ dev-libs/lzo static-libs
 # Enable displaying kernel module signatures
 sys-apps/kmod pkcs7
 
-# firmware update dervice LVFS/fwupd.org
+# firmware update service LVFS/fwupd.org
 sys-apps/fwupd uefi tpm synaptics spi nvme cbor bluetooth amt flashrom gnutls lzma

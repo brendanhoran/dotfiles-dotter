@@ -13,3 +13,6 @@ dev-ruby/pairing_heap
 dev-ruby/stream
 dev-ruby/google-protobuf
 {{~/if}}
+
+app-emulation/virtualbox
+app-emulation/virtualbox-modules

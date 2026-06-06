@@ -10,3 +10,7 @@ sys-power/tlp
 sys-apps/likwid
 
 app-backup/mkstage4
+
+sys-kernel/linux-firmware
+
+sys-apps/fwupd

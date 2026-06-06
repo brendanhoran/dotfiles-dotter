@@ -44,6 +44,10 @@ config.mouse_bindings = {
 
 }
 
+-- Disable SSH mux. Breaks my SSH agent setup
+-- https://wezterm.org/config/lua/config/mux_enable_ssh_agent.html
+config.mux_enable_ssh_agent = false
+
 -- Claude Code
 config.keys = {
   {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},

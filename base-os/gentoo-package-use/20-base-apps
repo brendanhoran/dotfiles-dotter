@@ -4,7 +4,7 @@
 */* gtk vim-syntax lm-sensors
 
 # Global disable use flags
-*/* -sound -qt5 -qt6
+*/* -qt5 -qt6
 
 # Disable gtk to ensure gnome stuff is not pulled in:
 # pinentry-gnome3.c:26:10: fatal error: gcr/gcr-base.h: No such file or directory

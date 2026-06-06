@@ -1,7 +1,17 @@
 # File managed by version control
 
-# Manage PYTHON_TARGETS and PYTHON_TARGETS
+# Manage PYTHON_TARGETS and PYTHON_SINGLE_TARGET
 # https://wiki.gentoo.org/wiki/Project:Python/PYTHON_TARGETS
 
-# VirtualBox needs Python 3.11 (06-2024)
-app-emulation/virtualbox PYTHON_SINGLE_TARGET: -* python3_11
+# Globals:
+#   python3_12 - kept only for the single-target pins (virtualbox, clang:16 below)
+#   python3_13 - current default single target
+#   python3_14 - build-ahead for the next bump (drop to speed up rebuilds if unused)
+*/* PYTHON_TARGETS: -* python3_12 python3_13 python3_14
+*/* PYTHON_SINGLE_TARGET: -* python3_13
+
+# VirtualBox only supports single-target Python 3.12
+app-emulation/virtualbox PYTHON_SINGLE_TARGET: -* python3_12
+
+# LLVM:16 needed by Intel GPU compute stack (opencl-clang → intel-graphics-compiler)
+llvm-core/clang:16 PYTHON_SINGLE_TARGET: -* python3_12

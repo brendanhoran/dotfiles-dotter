@@ -4,5 +4,12 @@
 dev-lang/rust-bin rust-src rust-analyzer rustfmt clippy verify-sig
 dev-lang/rust rust-src rust-analyzer rustfmt clippy verify-sig
 
-# NodeJS enable npm
-net-libs/nodejs npm
+# NodeJS enable npm and inspector for code coverage
+net-libs/nodejs npm inspector corepack
+
+# Postgresql cli
+dev-db/postgresql -server -uring
+
+sys-fs/mtools -gui
+
+sys-fs/squashfuse lz4 lzma lzo zstd

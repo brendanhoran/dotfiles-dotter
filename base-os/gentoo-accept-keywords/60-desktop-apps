@@ -4,9 +4,13 @@
 # Use rapid channel vs esr
 www-client/firefox
 dev-libs/nss
+dev-libs/nspr
+dev-libs/icu
+www-client/firefox-l10n
 
-x11-terms/wezterm
+x11-terms/wezterm **
 gui-apps/gtkgreet
+gui-apps/ReGreet **
 
 # Needed for Intel VAAPI
 media-libs/libva-intel-media-driver
@@ -24,8 +28,6 @@ gui-apps/kanshi
 dev-libs/libscfg
 
 app-arch/7zip
-
-net-im/zoom
 
 # Used by binwalk3
 app-arch/sasquatch

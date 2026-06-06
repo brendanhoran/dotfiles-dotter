@@ -5,4 +5,4 @@
 # The following options need to be enabled in chrome://flags
 #  #ignore-gpu-blocklist, #enable-zero-copy, #enable-unsafe-webgpu, #enable-vulkan
 #
-/usr/bin/google-chrome-stable --enable-features=VaapiVideoDecoder,VaapiVideoEncoder
+/usr/bin/google-chrome-stable --enable-features=VaapiVideoDecoder,VaapiVideoEncoder  --disable-vulkan
