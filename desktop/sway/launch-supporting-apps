@@ -12,8 +12,8 @@ exec /usr/bin/nm-applet
 # Mousepad to act as a text scratchpad
 exec /usr/bin/mousepad
 
-# Start kanshi display manager
-exec_always {
-  pkill kanshi
-  kanshi &
-}
+# Start kanshi display manager.
+# kanshi is a long-running daemon: it applies the profile matching the
+# currently connected outputs, then stays up to auto-switch on dock/undock.
+# Use exec (runs once at startup)
+exec kanshi
