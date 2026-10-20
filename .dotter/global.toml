@@ -6,7 +6,7 @@
 depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts", "base-os-systemd-unit-dropins"]
 
 [user]
-depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
+depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
 
 ### END Package group mappings ###
 
@@ -177,6 +177,18 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh"]
 
 [ssh.files]
 "desktop/ssh-config" = "~/.ssh/config"
+
+[firefox]
+
+[firefox.files]
+# Linux only, fixes the vertical tabs scrollbar. The profile folder name differs on each
+# machine, so firefox.fish exports it as FIREFOX_PROFILE, read from Firefox's own
+# ~/.mozilla/firefox/installs.ini. The targets below use it.
+# On a new machine, run the first deploy as: source desktop/firefox/firefox.fish; dotter deploy
+# dotter stops with "failed to expand file path" if it is not set.
+"desktop/firefox/userChrome.css" = { target = "~/.mozilla/firefox/${FIREFOX_PROFILE}/chrome/userChrome.css", type = "template" }
+"desktop/firefox/user.js" = { target = "~/.mozilla/firefox/${FIREFOX_PROFILE}/user.js", type = "template" }
+"desktop/firefox/firefox.fish" = "~/.config/fish/conf.d/firefox.fish"
 
 
 ### END User /home config and dot files ###

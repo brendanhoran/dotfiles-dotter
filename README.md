@@ -16,6 +16,7 @@ Setup currently is:
 * Fish for my shell
 * Waybar for my status bar
 * Greetd and gtkgreet for my login handling
+* Firefox with native vertical tabs
 
 ## Screenshot
 
@@ -44,6 +45,19 @@ Under the `os` package group you will find all the configurations I use to setup
 ## Dot files
 
 Under the `user` package you will find all the dot files that I have configured to support my environment.
+
+### Firefox vertical tabs scrollbar
+
+On Linux with Firefox's Nova design, the sidebar resize handle sits on top of the vertical tab list scrollbar, which makes the scrollbar very hard to grab.
+The `firefox` package copies `desktop/firefox/userChrome.css` (moves the handle off the scrollbar and widens it) and `desktop/firefox/user.js` (turns on loading of `userChrome.css`) into the Firefox profile.
+
+The profile folder name is different on each machine. `desktop/firefox/firefox.fish` reads it from Firefox's own `~/.mozilla/firefox/installs.ini` and exports it as `FIREFOX_PROFILE` in fish, which dotter uses for the target paths. It assumes a single Firefox install.
+
+On a new machine that drop-in is not installed yet, so source it from the repo for the first deploy (Firefox must have run once, so `installs.ini` exists):
+```
+source desktop/firefox/firefox.fish; dotter deploy
+```
+After that `dotter deploy` works as usual. Restart Firefox after deploying.
 
 ## Usage
 

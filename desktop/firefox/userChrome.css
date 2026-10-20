@@ -1,0 +1,21 @@
+/* Managed by dotter from dotfiles-dotter/desktop/firefox, edit it there.
+ * Firefox only loads this file when
+ * toolkit.legacyUserProfileCustomizations.stylesheets is true (set in user.js).
+ * Before dropping the first rule, check whether Mozilla has fixed the overlap
+ * (bugs 1934022 and 2022947). */
+
+/* Firefox 158 on Linux with the Nova design (browser.nova.enabled): the
+ * vertical tabs resize handle (#sidebar-launcher-splitter) is pulled 4px over
+ * the tab list and covers most of its thin scrollbar. Without Nova, Firefox
+ * avoids this overlap on Linux. Restore that, so the handle sits beside the
+ * list instead of on top of it. */
+#sidebar-launcher-splitter {
+  margin-inline: 0 !important;
+}
+
+/* Standard width scrollbar for the expanded tab list instead of the thin one.
+ * Collapsed (icon-only) mode keeps the thin one, as its fixed width only has
+ * room for that. */
+#tabbrowser-tabs[orient="vertical"][expanded] #tabbrowser-arrowscrollbox::part(scrollbox) {
+  scrollbar-width: auto !important;
+}
