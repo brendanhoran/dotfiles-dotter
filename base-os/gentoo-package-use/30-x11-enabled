@@ -26,5 +26,5 @@ media-libs/libsdl2 X
 # Needed for VirtualBox. https://bugs.gentoo.org/949857
 dev-qt/qtbase X
 dev-qt/qtmultimedia X
-
+app-emulation/virtualbox X
 dev-python/pycairo X

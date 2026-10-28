@@ -1,2 +1,3 @@
 # Set make jobs to 1 to enforce sequential build order 
 sys-apps/likwid force-makefile-sequential-builds.conf
+=app-text/texlive-core-2024* force-makefile-sequential-builds.conf

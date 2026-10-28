@@ -1,7 +1,7 @@
 # File managed by version control
 
 # Global enabled use flags
-*/* lvm wayland cryptsetup man secureboot
+*/* lvm wayland cryptsetup man secureboot cet verify-sig
 
 # Global disabled use flags
 */* -accessibility -gnome -X
