@@ -1,0 +1,6 @@
+# Force useage of pcscd
+# fixes 
+#   gpg: selecting card failed: No such device
+#   gpg: OpenPGP card not available: No such device
+#
+disable-ccid
