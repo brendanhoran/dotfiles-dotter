@@ -7,6 +7,7 @@ dev-libs/nss
 dev-libs/nspr
 dev-libs/icu
 www-client/firefox-l10n
+media-libs/libaom
 
 x11-terms/wezterm **
 gui-apps/gtkgreet
@@ -26,8 +27,21 @@ app-misc/brightnessctl
 
 gui-apps/kanshi
 dev-libs/libscfg
+# kanshi[varlink]
+dev-libs/vali
+
+# Used by kanshi-mirror (GURU)
+gui-apps/wl-mirror
+sys-process/pipectl
 
 app-arch/7zip
 
 # Used by binwalk3
 app-arch/sasquatch
+
+# needed by dev-python/internetarchive
+dev-python/schema ~amd64
+dev-python/internetarchive ~amd64
+
+# needed for chdman CHD to bin/cue for Saturn Saroo
+games-emulation/mame ~amd64

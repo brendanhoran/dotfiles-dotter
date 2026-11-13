@@ -1,6 +1,5 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Gentoo post install hook used by sys-kernel/installkernel
-# Needed if secureboot is enabled, since all efi binaries need to be signed.
 # Function: To ensure all efi binaries in the /efi partition are signed for secureboot
 #   sys-apps/fwupd requires 'DisableShimForSecureBoot=true' to be set in '/etc/fwupd/fwupd.conf'
 #   this enables fwupd to sign/create fwupdx64.efi.signed.
@@ -9,22 +8,47 @@
 #   Set to check for a minium of three files, kernel, fwupdate and the default boot64 binary
 #   Files need to be enrolled manually via 'sbctl sign --save FILENAME_TO_ENROLL'
 
-printf 'Running post hook: 98-sbctl-sign-fwupdate-bootx64.\n'
+printf '*** Running post hook: 98-sbctl-sign-fwupdate-bootx64.\n'
 if [ -f /usr/libexec/fwupd/efi/fwupdx64.efi.signed ]; then
-printf 'Copy pre-signed fwupdate binary to EFI partition.\n'
+printf '** fwupdmgr: Copy/Update pre-signed fwupdate binary to EFI partition.\n'
   cp /usr/libexec/fwupd/efi/fwupdx64.efi.signed /efi/EFI/gentoo/fwupdx64.efi
 else
-  printf 'Did not find fwupdx64.efi.signed file to copy, check fwupd.conf.\n'
+  printf 'Error:: fwupdmgr: Did not find a signed copy of fwupdx64.efi file to copy, check fwupd.conf and /usr/libexec/fwupd/efi directory.\n'
   exit 1
 fi
 
-if [[ $(sbctl list-files | grep -c "Signed") -ge 3 ]]; then
-  printf 'sbctl: Signing all saved/enrolled files.\n'
-  sbctl sign-all
+if [[ $(sbctl list-files | grep -c "Signed") -eq 2 ]]; then
+  printf '** sbctl: Found two enrolled and signed EFI files.\n'
 
-  printf 'sbctl: Verify all signed files that are enrolled.\n'
-  sbctl verify
+  printf '** sbctl: Verify BOOTX64.EFI is signed.\n'
+  sbctl ls | grep -1 BOOT | grep Signed
+
+  printf '** sbctl: Verify systemd-bootx64.efi is signed.\n'
+  sbctl ls | grep -1 systemd | grep Signed
 else
-  printf 'sbctl: Fewer than three files are enrolled for signing. Please check the enrolled files manually.\n'
+  printf 'Error:: sbctl: Check BOOTX64.EFI and systemd-bootx64.efi for valid signature.\n'
   exit 1
 fi
+
+gentoo_verify=$(sbctl verify)
+gentoo_total=$(printf '%s\n' "${gentoo_verify}" | grep -c -e '-gentoo[^ ]*\.efi')
+gentoo_signed=$(printf '%s\n' "${gentoo_verify}" | grep -e '-gentoo[^ ]*\.efi' | grep -c 'is signed')
+
+if [[ "${gentoo_total}" -ge 1 ]]; then
+  printf '** sbctl: Found one or more Gentoo UKI files (%d total, %d signed).\n' "${gentoo_total}" "${gentoo_signed}"
+
+  printf '** sbctl: Check if Gentoo UKI files are signed.\n'
+  if [[ "${gentoo_signed}" -eq "${gentoo_total}" ]]; then
+    printf '%s\n' "${gentoo_verify}" | grep -e '-gentoo[^ ]*\.efi' | grep 'is signed'
+    printf '** sbctl: All Gentoo UKI files are signed.\n'
+  else
+    printf 'Error:: sbctl: %d of %d Gentoo UKI files are NOT signed, check manualy.\n' "$((gentoo_total - gentoo_signed))" "${gentoo_total}"
+    printf '%s\n' "${gentoo_verify}" | grep -e '-gentoo[^ ]*\.efi' | grep -v 'is signed'
+    exit 1
+  fi
+else
+  printf 'Error:: sbctl: Could not verify signature on Gentoo UKI files, check manualy.\n'
+  exit 1
+fi
+
+printf '*** End post hook: 98-sbctl-sign-fwupdate-bootx64.\n'

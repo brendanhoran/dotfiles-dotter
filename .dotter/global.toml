@@ -3,10 +3,10 @@
 ### Package group mappings ###
 
 [os]
-depends = ["boot", "base-os", "base-os-dracut", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts", "base-os-systemd-unit-dropins"]
+depends = ["boot", "base-os", "base-os-dracut", "base-os-kernel", "base-os-greet", "base-os-gentoo-accept-keywords", "base-os-gentoo-package-use", "base-os-gentoo-env-override", "my-scripts", "base-os-systemd-unit-dropins", "base-os-power-managment", "udev-rules"]
 
 [user]
-depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
+depends = ["misc-home", "sway", "waybar", "wofi", "mako", "fish", "ssh", "firefox"]
 
 ### END Package group mappings ###
 
@@ -48,8 +48,9 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
 
 [base-os-kernel.files]
 "base-os/kernel/install.conf" = { target = "/etc/kernel/install.conf", type = "template" }
-"base-os/kernel/postinst.d/98-sbctl-sign-fwupdate-bootx64.install" = { target = "/etc/kernel/postinst.d/98-sbctl-sign-fwupdate-bootx64.install", type = "template" }
+"base-os/kernel/install.d/98-sbctl-sign-fwupdate-bootx64.install" = { target = "/etc/kernel/install.d/98-sbctl-sign-fwupdate-bootx64.install", type = "template" }
 "base-os/kernel/cmdline" = { target = "/etc/kernel/cmdline", type = "template" }
+"base-os/kernel/uki.conf" = { target = "/etc/kernel/uki.conf", type = "template" }
 
 
 [base-os-greet]
@@ -59,9 +60,6 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
 "base-os/greet/environments" = { target = "/etc/greetd/environments",  type = "template" }
 "base-os/greet/gtkgreet.css" = { target = "/etc/greetd/gtkgreet.css",  type = "template" }
 "base-os/greet/sway-config" = { target = "/etc/greetd/sway-config", type = "template" }
-#
-# Gentoo is missing the PAM dropin for greetd
-"base-os/greet/pam-dropin" = { target = "/etc/pam.d/greetd", type = "template" }
 
 [base-os-gentoo-accept-keywords]
 
@@ -111,9 +109,9 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
 [udev-rules]
 
 [udev-rules.files]
-"base-os/udev-rules/60-saleae-logic.rule" = { target = "/etc/udev/rules.d/60-saleae-logic.rule", type = "template" }
+"base-os/udev-rules/60-saleae-logic.rules" = { target = "/etc/udev/rules.d/60-saleae-logic.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 "base-os/udev-rules/70-jabra.rules" = { target = "/etc/udev/rules.d/70-jabra.rules", type = "template" }
-"base-os/udev-rules/99-precursor-usb.rule" = { target = "/etc/udev/rules.d/99-precursor-usb.rule", type = "template" }
+"base-os/udev-rules/99-precursor-usb.rules" = { target = "/etc/udev/rules.d/99-precursor-usb.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 
 [my-scripts]
 
@@ -121,6 +119,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
 "my-scripts/screenshot.sh" = { target = "/usr/local/bin/screenshot.sh", type = "template" }
 "my-scripts/sway_window_split_indicator.py" = { target = "/usr/local/bin/sway_window_split_indicator.py", type = "template" }
 "my-scripts/launch-chrome-with-gpu-offload" = { target = "/usr/local/bin/meets", type = "template" }
+"my-scripts/kanshi-mirror" = { target = "/usr/local/bin/kanshi-mirror", type = "template" }
 
 ### END OS level files ###
 
@@ -164,7 +163,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "fish", "ssh", "firefox"]
 [mako]
 
 [mako.files]
-"desktop/mako/comfig" = "~/.config/mako/config"
+"desktop/mako/config" = "~/.config/mako/config"
 
 [fish]
 

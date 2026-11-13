@@ -4,5 +4,8 @@ includes = []
 packages = ["user"]
 
 [files]
+# Empty target ("") makes dotter skip the file on this host; workbox keeps its own copies
+"desktop/gpg-agent" = ""
+"desktop/cargo-global" = ""
 
 [variables]

@@ -1,10 +1,19 @@
 profile laptop {
         output eDP-1 enable mode 2880x1800@90.001Hz scale 1.2
         exec nmcli radio wifi on
+        # kanshi has no hook for leaving a profile, so tear down any mirror
+        # session here, on the way back from presenting.
+        exec kanshi-mirror stop
 }
 
 profile dock {
-        output DP-3 enable mode 3840x2160
+        output "Dell Inc. DELL U2720Q 25LCC23" enable mode 3840x2160
         output eDP-1 disable
 	exec nmcli radio wifi off
+}
+
+profile mirror {
+        output eDP-1 enable mode 2880x1800@90.001Hz scale 2
+        output HDMI-A-1 enable
+        exec kanshi-mirror start
 }

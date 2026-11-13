@@ -5,4 +5,5 @@
 # The following options need to be enabled in chrome://flags
 #  #ignore-gpu-blocklist, #enable-zero-copy, #enable-unsafe-webgpu, #enable-vulkan
 #
-/usr/bin/google-chrome-stable --enable-features=VaapiVideoDecoder,VaapiVideoEncoder  --disable-vulkan
+# --password-store=basic stops the GNOME keyring prompts, but Chrome's saved secrets then use a fixed key
+/usr/bin/google-chrome-stable --enable-features=VaapiVideoDecoder,VaapiVideoEncoder --password-store=basic --use-mock-keychain
