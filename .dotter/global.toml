@@ -120,7 +120,6 @@ depends = ["misc-home", "sway", "waybar", "wofi", "mako", "fish", "ssh", "firefo
 "base-os/udev-rules/60-saleae-logic.rules" = { target = "/etc/udev/rules.d/60-saleae-logic.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 "base-os/udev-rules/70-jabra.rules" = { target = "/etc/udev/rules.d/70-jabra.rules", type = "template" }
 "base-os/udev-rules/80-usb-microscope.rules" = { target = "/etc/udev/rules.d/80-usb-microscope.rules", type = "template", if = '(eq dotter.hostname "smd")' }
-"base-os/udev-rules/85-platformio-dev.rules" = { target = "/etc/udev/rules.d/85-platformio-dev.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 "base-os/udev-rules/99-precursor-usb.rules" = { target = "/etc/udev/rules.d/99-precursor-usb.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 
 [my-scripts]
