@@ -1,2 +1,9 @@
+{{! UUID's of volumes differ per machine }}
+{{#if (eq dotter.hostname "smd")}}
 rd.timeout=90 rd.luks rd.luks.options=discard rd.lvm root=UUID=577da781-e1c7-459c-8fd3-1ff0edd760aa
 rd.luks.uuid=0ee7fc8b-61d2-4396-8a6d-e96940085418 rd.lvm.vg=vg1 resume=UUID=8d8268c1-8c74-4817-8c2b-cc2eb20e0834 rt_group_sched=0
+{{/if}}
+{{#if (eq dotter.hostname "workbox")}}
+rd.timeout=90 rd.luks rd.luks.options=discard rd.lvm root=UUID=8594c3a4-b952-445b-9acb-306773093359
+rd.luks.uuid=5abe622b-eb47-41dd-8622-7fa93dbd4244 rd.lvm.vg=vg1 resume=UUID=1588bb82-445f-4e8f-8de7-8393f2f95bee rt_group_sched=0
+{{/if}}

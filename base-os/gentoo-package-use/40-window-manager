@@ -4,3 +4,4 @@ gui-wm/sway -swaybar -tray
 app-misc/jq -oniguruma
 media-libs/vulkan-loader layers
 gui-apps/waybar tray network
+gui-apps/kanshi varlink

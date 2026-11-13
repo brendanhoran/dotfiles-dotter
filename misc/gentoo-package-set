@@ -93,6 +93,7 @@ gui-apps/swayidle
 gui-apps/swaylock
 gui-apps/waybar
 gui-apps/wev
+gui-apps/wl-mirror
 gui-apps/wofi
 gui-libs/gtk-layer-shell
 gui-wm/sway
@@ -204,6 +205,7 @@ sys-power/tlp
 sys-process/htop
 sys-process/lsof
 sys-process/parallel
+sys-process/pipectl
 virtual/imagemagick-tools
 virtual/latex-base
 www-client/firefox

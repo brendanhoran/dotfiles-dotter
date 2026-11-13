@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+#
+# Start and stop the wl-mirror session used by kanshi's "mirror" profile.
+#
+# kanshi runs a profile's exec hooks when that profile is applied and has no
+# hook for leaving one, so a wl-mirror started by the mirror profile outlives
+# the profile itself. Unplug the projector, the laptop profile takes over, and
+# the survivor re-parents onto eDP-1 and mirrors the panel into itself. Both
+# profiles therefore call this script: "stop" on the way back to laptop, and
+# "start" (which stops first) so a session can never be doubled up.
+#
+# Assumes a single wl-mirror session, which matches the laptop -> mirror ->
+# laptop flow this is written for. Any other wl-mirror started by hand is torn
+# down too.
+
+set -euo pipefail
+
+readonly SOURCE_OUTPUT="eDP-1"
+readonly TARGET_OUTPUT="HDMI-A-1"
+readonly PIPE_NAME="wl-present"
+
+# wl-present drives wl-mirror over a pipectl named pipe, built as
+# TMP/pipectl.UID.NAME.pipe where TMP is the first of XDG_RUNTIME_DIR, TMPDIR
+# or /tmp that is set (see pipectl(1) PATHS).
+pipe_path() {
+	local tmp
+	if [[ -n "${XDG_RUNTIME_DIR:-}" ]]; then
+		tmp="${XDG_RUNTIME_DIR}"
+	elif [[ -n "${TMPDIR:-}" ]]; then
+		tmp="${TMPDIR}"
+	else
+		tmp="/tmp"
+	fi
+	printf '%s/pipectl.%s.%s.pipe' "${tmp}" "$(id -u)" "${PIPE_NAME}"
+}
+
+stop_mirror() {
+	# Match on the exact process name only. Matching the pipectl reader on its
+	# full command line (pkill -f) would also kill any unrelated process that
+	# merely mentions that string, a shell running grep against it included.
+	# It is not needed anyway: wl-present runs "pipectl -o | wl-mirror", so the
+	# reader dies of SIGPIPE as soon as wl-mirror goes.
+	pkill -x wl-mirror || true
+
+	# Let the old instance release the pipe before it gets recreated.
+	local i
+	for ((i = 0; i < 20; i++)); do
+		pgrep -x wl-mirror >/dev/null || break
+		sleep 0.1
+	done
+	pkill -KILL -x wl-mirror || true
+
+	# wl-present calls pipectl without -f, and pipectl refuses to create a pipe
+	# that already exists, so a stale pipe blocks every future session.
+	# Unlinking also defangs any reader that did somehow survive: the next
+	# session creates a fresh inode at this path, leaving the survivor holding
+	# the old one where it can no longer intercept anything.
+	rm -f -- "$(pipe_path)"
+}
+
+start_mirror() {
+	stop_mirror
+	exec wl-present mirror "${SOURCE_OUTPUT}" \
+		--fullscreen-output "${TARGET_OUTPUT}" --fullscreen
+}
+
+main() {
+	case "${1:-}" in
+	start) start_mirror ;;
+	stop) stop_mirror ;;
+	*)
+		printf 'usage: %s start|stop\n' "${0##*/}" >&2
+		exit 1
+		;;
+	esac
+}
+
+main "$@"
