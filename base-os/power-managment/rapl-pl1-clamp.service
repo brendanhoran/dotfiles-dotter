@@ -1,0 +1,73 @@
+# systemd unit: clamp Intel RAPL package PL1 (sustained power limit)
+# Install as /etc/systemd/system/rapl-pl1-clamp.service
+#
+# TLP cannot do this. Verified against TLP 1.10.1: no RAPL/powercap/TDP key exists
+# in the documented key set, grep -riE 'rapl|powercap' over /usr/share/tlp/ and
+# /usr/sbin/tlp returns nothing, and upstream documents it as unsupported.
+#
+# PL1 governs the 28-32 second rolling average only. PL2 stays at its locked 55W,
+# so short bursts remain exactly as fast; only sustained all-core draw is capped.
+# Single-core boost is unaffected, which is why this is preferred over TLP's
+# CPU_MAX_PERF_ON_AC (a flat frequency cap that would also slow interactive work).
+#
+# Adjustable range on this part: 0.125W to 55W in 0.5W steps, window 28-32s.
+
+[Unit]
+Description=Clamp Intel RAPL package PL1 to 35W
+Documentation=https://www.kernel.org/doc/html/latest/power/powercap/powercap.html
+ConditionPathExists=/sys/devices/virtual/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw
+# Ordering after the sleep targets is what makes this re-apply on resume;
+# firmware commonly restores its own PL1 across a suspend cycle.
+After=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+# Must stay "no" so the unit re-runs on every resume rather than staying active.
+RemainAfterExit=no
+
+# The helper clamps DOWNWARD ONLY: it writes min(current, 35W). This unit is not
+# power-source aware, and firmware may set a lower PL1 on battery -- taking the
+# minimum guarantees this can never raise the limit and never cost battery life.
+# The helper also reads the value back and fails if firmware rejected the write.
+ExecStart=/usr/local/sbin/rapl-pl1-clamp 35000000
+
+# ---- least privilege ----------------------------------------------------------
+# Runs as root because the sysfs attribute is root-owned, but drops everything
+# else. The file is mode 0644 and root-owned, so the owner write bit suffices and
+# no capabilities are required at all.
+CapabilityBoundingSet=
+AmbientCapabilities=
+NoNewPrivileges=yes
+
+# /sys is made read-only by ProtectKernelTunables, then exactly one directory is
+# punched back through. This is the only writable path the unit has.
+ProtectKernelTunables=yes
+ReadWritePaths=/sys/devices/virtual/powercap/intel-rapl/intel-rapl:0
+
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateNetwork=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+ProcSubset=pid
+RestrictAddressFamilies=
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources @obsolete
+IPAddressDeny=any
+DevicePolicy=closed
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target

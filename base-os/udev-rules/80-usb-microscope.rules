@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="video4linux", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0c46", ATTRS{idProduct}=="6369", ATTR{index}=="0", MODE="0660", SYMLINK+="microscope"

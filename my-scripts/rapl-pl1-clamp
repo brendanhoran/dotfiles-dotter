@@ -1,0 +1,43 @@
+#!/bin/sh
+#
+# Clamp the Intel RAPL package PL1 (sustained power limit) DOWNWARD ONLY.
+# Install as /usr/local/sbin/rapl-pl1-clamp (mode 0755).
+#
+# Why downward-only:
+#   This runs at boot and on resume, and is NOT power-source aware. Firmware on
+#   some ThinkPads sets a lower PL1 on battery than on AC. An unconditional write
+#   would RAISE the limit in that case and cost battery life. Taking the minimum
+#   of (current, target) means this can only ever reduce power draw, never
+#   increase it, whichever source the machine happens to be on.
+#
+# Usage: rapl-pl1-clamp [target_uW]        (default 35000000 == 35W)
+
+set -eu
+
+TARGET_UW="${1:-35000000}"
+PL1=/sys/devices/virtual/powercap/intel-rapl/intel-rapl:0/constraint_0_power_limit_uw
+
+if [ ! -w "$PL1" ]; then
+    echo "rapl-pl1-clamp: not writable: $PL1" >&2
+    exit 1
+fi
+
+cur=$(cat "$PL1")
+
+# Already at or below target (e.g. firmware lowered it on battery) -- leave alone.
+if [ "$cur" -le "$TARGET_UW" ]; then
+    echo "rapl-pl1-clamp: PL1 already ${cur}uW, at or below target ${TARGET_UW}uW; unchanged"
+    exit 0
+fi
+
+echo "$TARGET_UW" > "$PL1"
+
+# Firmware can silently reject or reassert. Fail loudly rather than report success
+# while the limit is still whatever it was.
+new=$(cat "$PL1")
+if [ "$new" != "$TARGET_UW" ]; then
+    echo "rapl-pl1-clamp: rejected by firmware: requested ${TARGET_UW}uW, read back ${new}uW" >&2
+    exit 1
+fi
+
+echo "rapl-pl1-clamp: PL1 ${cur}uW -> ${new}uW"

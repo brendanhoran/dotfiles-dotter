@@ -105,12 +105,22 @@ depends = ["misc-home", "sway", "waybar", "wofi", "mako", "fish", "ssh", "firefo
 "base-os/power-managment/10-ac-dock-caldigit.conf" = { target = "/etc/tlp.d/10-ac-dock-caldigit.conf", type = "template" }
 "base-os/power-managment/logind.conf" = { target = "/etc/systemd/logind.conf", type = "template" }
 "base-os/power-managment/sleep.conf" = { target = "/etc/systemd/sleep.conf", type = "template" }
+#
+# smd only: thermal tuning measured on its Core Ultra 7 165U, see the comments in each file.
+# Dotter does not enable units, on a fresh install run: systemctl enable rapl-pl1-clamp.service
+"base-os/power-managment/10-thermal.conf" = { target = "/etc/tlp.d/10-thermal.conf", type = "template", if = '(eq dotter.hostname "smd")' }
+"base-os/power-managment/rapl-pl1-clamp.service" = { target = "/etc/systemd/system/rapl-pl1-clamp.service", type = "template", if = '(eq dotter.hostname "smd")' }
 
 [udev-rules]
 
 [udev-rules.files]
+"base-os/udev-rules/40-usb_ch343.rules" = { target = "/etc/udev/rules.d/40-usb_ch343.rules", type = "template", if = '(eq dotter.hostname "smd")' }
+"base-os/udev-rules/50-usb-meatpi-serial.rules" = { target = "/etc/udev/rules.d/50-usb-meatpi-serial.rules", type = "template", if = '(eq dotter.hostname "smd")' }
+"base-os/udev-rules/55-realtek-10g-usb-nic.rules" = { target = "/etc/udev/rules.d/55-realtek-10g-usb-nic.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 "base-os/udev-rules/60-saleae-logic.rules" = { target = "/etc/udev/rules.d/60-saleae-logic.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 "base-os/udev-rules/70-jabra.rules" = { target = "/etc/udev/rules.d/70-jabra.rules", type = "template" }
+"base-os/udev-rules/80-usb-microscope.rules" = { target = "/etc/udev/rules.d/80-usb-microscope.rules", type = "template", if = '(eq dotter.hostname "smd")' }
+"base-os/udev-rules/85-platformio-dev.rules" = { target = "/etc/udev/rules.d/85-platformio-dev.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 "base-os/udev-rules/99-precursor-usb.rules" = { target = "/etc/udev/rules.d/99-precursor-usb.rules", type = "template", if = '(eq dotter.hostname "smd")' }
 
 [my-scripts]
@@ -120,6 +130,7 @@ depends = ["misc-home", "sway", "waybar", "wofi", "mako", "fish", "ssh", "firefo
 "my-scripts/sway_window_split_indicator.py" = { target = "/usr/local/bin/sway_window_split_indicator.py", type = "template" }
 "my-scripts/launch-chrome-with-gpu-offload" = { target = "/usr/local/bin/meets", type = "template" }
 "my-scripts/kanshi-mirror" = { target = "/usr/local/bin/kanshi-mirror", type = "template" }
+"my-scripts/rapl-pl1-clamp" = { target = "/usr/local/sbin/rapl-pl1-clamp", type = "template", if = '(eq dotter.hostname "smd")' }
 
 ### END OS level files ###
 

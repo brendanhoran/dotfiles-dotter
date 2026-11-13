@@ -1,0 +1,12 @@
+ACTION!="add", GOTO="usb_realtek_net_end"
+SUBSYSTEM!="usb", GOTO="usb_realtek_net_end"
+ENV{DEVTYPE}!="usb_device", GOTO="usb_realtek_net_end"
+
+ENV{REALTEK_MODE1}="1"
+ENV{REALTEK_MODE2}="3"
+
+# Realtek
+ATTR{idVendor}=="0bda", ATTR{idProduct}=="815[2,3,5,6]", ATTR{bConfigurationValue}!="$env{REALTEK_MODE1}", ATTR{bConfigurationValue}="$env{REALTEK_MODE1}"
+ATTR{idVendor}=="0bda", ATTR{idProduct}=="8053", ATTR{bcdDevice}=="e???", ATTR{bConfigurationValue}!="$env{REALTEK_MODE2}", ATTR{bConfigurationValue}="$env{REALTEK_MODE2}"
+
+LABEL="usb_realtek_net_end"
