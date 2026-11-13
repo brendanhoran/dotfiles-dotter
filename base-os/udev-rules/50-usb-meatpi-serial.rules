@@ -1,0 +1,8 @@
+# Support for:
+# https://github.com/meatpiHQ/meatpi_ollie_v2
+
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="1261", ENV{ID_USB_INTERFACE_NUM}=="00", SYMLINK+="MEATPI-CAN0"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d5", ENV{ID_USB_INTERFACE_NUM}=="00", SYMLINK+="MEATPI-UARTA"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d5", ENV{ID_USB_INTERFACE_NUM}=="02", SYMLINK+="MEATPI-UARTB"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d5", ENV{ID_USB_INTERFACE_NUM}=="04", SYMLINK+="MEATPI-RS232"
+SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d5", ENV{ID_USB_INTERFACE_NUM}=="06", SYMLINK+="MEATPI-RS485"

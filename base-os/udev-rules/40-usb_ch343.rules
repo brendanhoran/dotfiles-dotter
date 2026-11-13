@@ -1,0 +1,4 @@
+# Support for:
+# https://github.com/meatpiHQ/meatpi_ollie_v2
+
+SUBSYSTEMS=="usb", DRIVERS=="usb_ch343", ENV{ID_USB_INTERFACE_NUM}="$attr{bInterfaceNumber}"
